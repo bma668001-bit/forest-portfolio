@@ -41,6 +41,22 @@ const visuals = defineCollection({
   }),
 });
 
+const projects = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/data/projects' }),
+  schema: z.object({
+    ...base,
+    summary: z.string().min(1),
+    year: z.number().int(),
+    category: z.string().min(1),
+    role: z.string().min(1),
+    duration: z.string().min(1),
+    featured: z.boolean().default(false),
+    cover: image,
+    gallery: z.array(image).min(1),
+    tools: z.array(z.string()).default([]),
+  }),
+});
+
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/articles' }),
   schema: z.object({
@@ -74,4 +90,4 @@ const profile = defineCollection({
   }),
 });
 
-export const collections = { workflows, visuals, articles, notes, profile };
+export const collections = { workflows, visuals, projects, articles, notes, profile };

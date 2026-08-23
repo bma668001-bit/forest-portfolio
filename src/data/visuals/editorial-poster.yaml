@@ -4,6 +4,7 @@ draft: false
 category: 海报
 year: 2026
 featured: true
+projectId: editorial-system
 image:
   src: /images/demo/workflow-field.svg
   alt: 暖米色背景上的抽象节点与编辑式大字

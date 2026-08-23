@@ -1,0 +1,14 @@
+---
+interface ProjectImage { src: string; alt: string; width: number; height: number; }
+interface Props { images: ProjectImage[]; }
+const { images } = Astro.props;
+---
+
+<div class="project-gallery" aria-label="项目图片">
+  {images.map((image, index) => (
+    <figure class="project-gallery__item">
+      <span>{String(index + 1).padStart(2, '0')}</span>
+      <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading={index === 0 ? 'eager' : 'lazy'} />
+    </figure>
+  ))}
+</div>
