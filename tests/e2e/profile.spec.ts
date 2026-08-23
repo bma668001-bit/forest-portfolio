@@ -37,3 +37,12 @@ test('demo content carries one consistent structure label across portfolio surfa
     await expect(page.getByText('结构示例', { exact: true }).first()).toBeVisible();
   }
 });
+
+test('demo workflow links expose their demo status in the accessible name', async ({ page }) => {
+  await page.goto('/workflows/');
+
+  await expect(page.getByRole('link', {
+    name: '查看工作流：公众号快速创作（演示内容）',
+    exact: true,
+  })).toBeVisible();
+});

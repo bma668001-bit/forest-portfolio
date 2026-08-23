@@ -7,12 +7,30 @@ test('filters gallery items without navigation', async ({ page }) => {
   await expect(page).toHaveURL(/visuals\/$/);
 });
 
-test('opens and closes the lightbox with keyboard focus restored', async ({ page }) => {
+test('exposes the live artwork metadata as the lightbox description', async ({ page }) => {
   await page.goto('/visuals/');
   const trigger = page.locator('[data-lightbox-trigger]').first();
   await trigger.click();
-  await expect(page.getByRole('dialog', { name: '作品大图' })).toBeVisible();
+  const dialog = page.getByRole('dialog', { name: '作品大图' });
+  const caption = page.locator('#lightbox-caption');
+
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveAttribute('aria-describedby', 'lightbox-caption');
+  await expect(caption).toHaveAttribute('aria-live', 'polite');
+  await expect(caption).toHaveAttribute('aria-atomic', 'true');
+});
+
+test('browses the lightbox with ArrowRight and restores its original trigger on Escape', async ({ page }) => {
+  await page.goto('/visuals/');
+  const trigger = page.locator('[data-lightbox-trigger]').first();
+  await trigger.click();
+  const dialog = page.getByRole('dialog', { name: '作品大图' });
+  const title = dialog.locator('[data-lightbox-title]');
+
+  const initialTitle = await title.textContent();
+  await page.keyboard.press('ArrowRight');
+  await expect(title).not.toHaveText(initialTitle ?? '');
   await page.keyboard.press('Escape');
-  await expect(page.getByRole('dialog', { name: '作品大图' })).toBeHidden();
+  await expect(dialog).toBeHidden();
   await expect(trigger).toBeFocused();
 });

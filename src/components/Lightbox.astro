@@ -2,9 +2,9 @@
 import { withBase } from '../lib/url';
 ---
 
-<dialog class="lightbox" aria-label="作品大图" data-lightbox>
+<dialog class="lightbox" aria-label="作品大图" aria-describedby="lightbox-caption" data-lightbox>
   <div class="lightbox__bar">
-    <div class="lightbox__metadata" data-lightbox-caption aria-live="polite" aria-atomic="true">
+    <div id="lightbox-caption" class="lightbox__metadata" data-lightbox-caption aria-live="polite" aria-atomic="true">
       <h2 data-lightbox-title>作品标题</h2>
       <p data-lightbox-description></p>
       <dl>

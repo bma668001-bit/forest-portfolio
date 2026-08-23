@@ -7,10 +7,11 @@ interface Props { entry: CollectionEntry<'workflows'>; index: number; }
 const { entry, index } = Astro.props;
 const href = withBase(`workflows/${entry.id}/`);
 const statusLabel = { active: '每天使用', evolving: '持续优化', archived: '已归档' }[entry.data.status];
+const accessibleLabel = `查看工作流：${entry.data.title}${entry.data.demo ? '（演示内容）' : ''}`;
 ---
 
 <article class="workflow-row" data-reveal style={`--reveal-index:${index}`}>
-  <a href={href} aria-label={`查看工作流：${entry.data.title}`}>
+  <a href={href} aria-label={accessibleLabel}>
     <span class="workflow-row__index">{String(index + 1).padStart(2, '0')}</span>
     <span class="workflow-row__title">{entry.data.title} <DemoBadge demo={entry.data.demo} /></span>
     <span class="workflow-row__summary">{entry.data.summary}</span>

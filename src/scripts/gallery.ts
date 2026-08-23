@@ -52,7 +52,7 @@ if (gallery) {
     if (!dialog || !dialogImage || !title || !description || !era || !tools) return;
     const triggers = visibleTriggers();
     activeIndex = Math.max(0, triggers.indexOf(trigger));
-    lastTrigger = trigger;
+    if (!dialog.open) lastTrigger = trigger;
     dialogImage.src = trigger.dataset.src ?? '';
     dialogImage.alt = trigger.dataset.alt ?? '';
     dialogImage.width = Number(trigger.dataset.width) || 1600;
@@ -76,6 +76,15 @@ if (gallery) {
   dialog?.querySelector('[data-lightbox-previous]')?.addEventListener('click', () => move(-1));
   dialog?.querySelector('[data-lightbox-next]')?.addEventListener('click', () => move(1));
   dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  dialog?.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      move(-1);
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      move(1);
+    }
+  });
   dialog?.addEventListener('close', () => window.requestAnimationFrame(() => lastTrigger?.focus()));
   stage?.addEventListener('pointerdown', (event) => {
     if (!event.isPrimary) return;
