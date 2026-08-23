@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import DemoBadge from '../../components/DemoBadge.astro';
+import VisualCard from '../../components/VisualCard.astro';
 import DetailLayout from '../../layouts/DetailLayout.astro';
 import { filterPublished, sortByOrder } from '../../lib/content';
 import { withBase } from '../../lib/url';
@@ -10,10 +11,16 @@ interface Props {
   previous?: CollectionEntry<'workflows'>;
   next?: CollectionEntry<'workflows'>;
   version?: CollectionEntry<'workflows'>;
+  relatedVisuals: CollectionEntry<'visuals'>[];
 }
 
 export async function getStaticPaths() {
-  const entries = sortByOrder(filterPublished(await getCollection('workflows')));
+  const [workflowEntries, visualEntries] = await Promise.all([
+    getCollection('workflows'),
+    getCollection('visuals'),
+  ]);
+  const entries = sortByOrder(filterPublished(workflowEntries));
+  const visuals = sortByOrder(filterPublished(visualEntries));
   return entries.map((entry, index) => ({
     params: { id: entry.id },
     props: {
@@ -21,11 +28,12 @@ export async function getStaticPaths() {
       previous: entries[index - 1],
       next: entries[index + 1],
       version: entry.data.versionOf ? entries.find((candidate) => candidate.id === entry.data.versionOf) : undefined,
+      relatedVisuals: visuals.filter((visual) => visual.data.workflowId === entry.id).slice(0, 4),
     },
   }));
 }
 
-const { entry, previous, next, version } = Astro.props;
+const { entry, previous, next, version, relatedVisuals } = Astro.props;
 const { Content } = await render(entry);
 const statusLabel = { active: '每天使用', evolving: '持续优化', archived: '已归档' }[entry.data.status];
 ---
@@ -37,6 +45,15 @@ const statusLabel = { active: '每天使用', evolving: '持续优化', archived
   <img class="detail-cover" src={withBase(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />
   {version && <p class="version-link">由旧版本发展而来：<a href={withBase(`workflows/${version.id}/`)}>{version.data.title}</a></p>}
   <Content />
+  {relatedVisuals.length > 0 && (
+    <section class="workflow-visuals" aria-labelledby="workflow-visuals-title" data-related-visuals>
+      <p class="eyebrow">OUTPUT / 结构示例</p>
+      <h2 id="workflow-visuals-title">这个流程产出的作品</h2>
+      <div class="workflow-visuals__grid">
+        {relatedVisuals.map((visual) => <VisualCard entry={visual} showWorkflowLink={false} />)}
+      </div>
+    </section>
+  )}
   <nav slot="pagination" class="detail-pagination" aria-label="相邻工作流">
     {previous ? <a href={withBase(`workflows/${previous.id}/`)}>← {previous.data.title}</a> : <span></span>}
     {next && <a href={withBase(`workflows/${next.id}/`)}>{next.data.title} →</a>}

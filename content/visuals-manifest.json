@@ -5,11 +5,15 @@
     "title": "编辑式海报实验",
     "alt": "暖米色背景上的抽象节点与编辑式大字",
     "category": "海报",
+    "era": "ai-assisted",
+    "description": "用于验证横版作品展示与内容关联的演示资产：暖米色画面以抽象节点、曲线和编辑式大字组织，不代表客户项目。",
+    "tools": ["SVG", "AI 辅助编排"],
     "year": 2026,
     "order": 10,
     "demo": true,
     "featured": true,
-    "projectId": "editorial-system"
+    "projectId": "editorial-system",
+    "workflowId": "wechat-writing"
   },
   {
     "id": "social-cover",
@@ -17,9 +21,13 @@
     "title": "自媒体封面实验",
     "alt": "深咖啡背景上的暖色轨道构图",
     "category": "自媒体封面",
+    "era": "hybrid",
+    "description": "用于验证竖版作品展示与灯箱切换的演示资产：深咖啡画面以暖色轨道、圆点和上下文字组织，不代表真实发布成果。",
+    "tools": ["SVG", "AI 辅助编排", "人工版式调整"],
     "year": 2026,
     "order": 20,
     "demo": true,
-    "featured": true
+    "featured": true,
+    "workflowId": "wechat-writing"
   }
 ]

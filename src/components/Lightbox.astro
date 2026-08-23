@@ -4,7 +4,14 @@ import { withBase } from '../lib/url';
 
 <dialog class="lightbox" aria-label="作品大图" data-lightbox>
   <div class="lightbox__bar">
-    <p data-lightbox-caption></p>
+    <div class="lightbox__metadata" data-lightbox-caption aria-live="polite" aria-atomic="true">
+      <h2 data-lightbox-title>作品标题</h2>
+      <p data-lightbox-description></p>
+      <dl>
+        <div><dt>创作阶段</dt><dd data-lightbox-era></dd></div>
+        <div><dt>使用工具</dt><dd data-lightbox-tools></dd></div>
+      </dl>
+    </div>
     <button type="button" aria-label="关闭作品大图" data-lightbox-close>关闭</button>
   </div>
   <div class="lightbox__stage" data-lightbox-stage>

@@ -3,8 +3,8 @@ import type { CollectionEntry } from 'astro:content';
 import DemoBadge from './DemoBadge.astro';
 import { withBase } from '../lib/url';
 
-interface Props { entry: CollectionEntry<'visuals'>; }
-const { entry } = Astro.props;
+interface Props { entry: CollectionEntry<'visuals'>; showWorkflowLink?: boolean; }
+const { entry, showWorkflowLink = true } = Astro.props;
 ---
 
 <figure class="visual-card" style={`--ratio:${entry.data.image.width}/${entry.data.image.height}`} data-reveal>
@@ -14,6 +14,11 @@ const { entry } = Astro.props;
   <figcaption>
     <span class="visual-card__title">{entry.data.title} <DemoBadge demo={entry.data.demo} /></span>
     <span>{entry.data.category} / {entry.data.year}</span>
-    {entry.data.projectId && <a href={withBase(`projects/${entry.data.projectId}/`)} aria-label={`查看项目：${entry.data.title}`}>项目详情 ↗</a>}
+    {(entry.data.projectId || (showWorkflowLink && entry.data.workflowId)) && (
+      <span class="visual-card__links">
+        {entry.data.projectId && <a href={withBase(`projects/${entry.data.projectId}/`)} aria-label={`查看“${entry.data.title}”关联的项目`}>项目详情 ↗</a>}
+        {showWorkflowLink && entry.data.workflowId && <a href={withBase(`workflows/${entry.data.workflowId}/`)} aria-label={`查看“${entry.data.title}”关联的工作流`}>工作流详情 ↗</a>}
+      </span>
+    )}
   </figcaption>
 </figure>

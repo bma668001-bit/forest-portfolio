@@ -9,6 +9,9 @@ const image = z.object({
   height: z.number().positive(),
 });
 
+const contentId = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+const projectImage = image.extend({ caption: z.string().trim().min(1).optional() });
+
 const base = {
   title: z.string().min(1),
   order: z.number().int(),
@@ -35,10 +38,14 @@ const visuals = defineCollection({
   schema: z.object({
     ...base,
     category: z.string().min(1),
+    era: z.enum(['pre-ai', 'ai-assisted', 'hybrid']),
+    description: z.string().trim().min(1),
     year: z.number().int(),
     image,
+    tools: z.array(z.string().trim().min(1)).default([]),
     featured: z.boolean().default(false),
-    projectId: z.string().optional(),
+    projectId: contentId.optional(),
+    workflowId: contentId.optional(),
   }),
 });
 
@@ -53,7 +60,7 @@ const projects = defineCollection({
     duration: z.string().min(1),
     featured: z.boolean().default(false),
     cover: image,
-    gallery: z.array(image).min(1),
+    gallery: z.array(projectImage).min(1),
     tools: z.array(z.string()).default([]),
   }),
 });

@@ -8,8 +8,15 @@ import { withBase } from '../../lib/url';
 
 const visuals = sortByOrder(filterPublished(await getCollection('visuals')));
 const projects = filterPublished(await getCollection('projects'));
+const workflows = filterPublished(await getCollection('workflows'));
 const projectById = new Map(projects.map((entry) => [entry.id, entry]));
+const workflowById = new Map(workflows.map((entry) => [entry.id, entry]));
 const categories = ['全部', ...new Set(visuals.map((entry) => entry.data.category))];
+const eraLabels = {
+  'pre-ai': 'AI 前',
+  'ai-assisted': 'AI 辅助',
+  hybrid: '混合制作',
+} as const;
 ---
 
 <BaseLayout title="视觉作品 — AI WORKFLOW / VISUAL PRACTICE" description="海报、电商、自媒体、活动与 AI 场景视觉作品档案。">
@@ -19,23 +26,52 @@ const categories = ['全部', ...new Set(visuals.map((entry) => entry.data.categ
     <p>不同年代、不同工具与不同使用场景放在同一份视觉档案里。正式素材导入后，类别会由内容自动生成。</p>
   </header>
   <section class="gallery-section shell" data-reveal>
-    <div class="gallery-filters" aria-label="作品分类">
-      {categories.map((category, index) => <button type="button" data-filter={category} aria-pressed={index === 0 ? 'true' : 'false'}>{category}</button>)}
+    <div class="gallery-filters" aria-label="作品筛选">
+      <div class="gallery-filter-group" role="group" aria-labelledby="category-filter-label" data-filter-group="category">
+        <span class="gallery-filter-label" id="category-filter-label">作品类别</span>
+        <div class="gallery-filter-options">
+          {categories.map((category, index) => <button type="button" data-filter-group="category" data-filter-value={category} aria-pressed={index === 0 ? 'true' : 'false'}>{category}</button>)}
+        </div>
+      </div>
+      <div class="gallery-filter-group" role="group" aria-labelledby="era-filter-label" data-filter-group="era">
+        <span class="gallery-filter-label" id="era-filter-label">创作阶段</span>
+        <div class="gallery-filter-options">
+          <button type="button" data-filter-group="era" data-filter-value="全部" aria-pressed="true">全部</button>
+          {Object.entries(eraLabels).map(([era, label]) => <button type="button" data-filter-group="era" data-filter-value={era} aria-pressed="false">{label}</button>)}
+        </div>
+      </div>
     </div>
     <div class="gallery-grid" data-gallery>
       {visuals.map((entry, index) => (
-        <figure class="gallery-item" data-visual data-reveal data-category={entry.data.category} style={`--ratio:${entry.data.image.width}/${entry.data.image.height};--reveal-index:${index}`}>
-          <button type="button" class="gallery-item__trigger" data-lightbox-trigger data-src={withBase(entry.data.image.src)} data-alt={entry.data.image.alt} data-width={entry.data.image.width} data-height={entry.data.image.height} data-caption={`${entry.data.title} · ${entry.data.category} · ${entry.data.year}`}>
+        <figure class="gallery-item" data-visual data-reveal data-category={entry.data.category} data-era={entry.data.era} style={`--ratio:${entry.data.image.width}/${entry.data.image.height};--reveal-index:${index}`}>
+          <button
+            type="button"
+            class="gallery-item__trigger"
+            data-lightbox-trigger
+            data-src={withBase(entry.data.image.src)}
+            data-alt={entry.data.image.alt}
+            data-width={entry.data.image.width}
+            data-height={entry.data.image.height}
+            data-title={entry.data.title}
+            data-description={entry.data.description}
+            data-era={entry.data.era}
+            data-tools={entry.data.tools.join(' / ')}
+          >
             <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
           </button>
           <figcaption>
             <span>{entry.data.title} <DemoBadge demo={entry.data.demo} /></span><span>{entry.data.category} / {entry.data.year}</span>
-            {entry.data.projectId && projectById.get(entry.data.projectId) && <a href={withBase(`projects/${entry.data.projectId}/`)} aria-label={`查看项目：${projectById.get(entry.data.projectId)?.data.title}`}>项目详情 ↗</a>}
+            {(entry.data.projectId && projectById.has(entry.data.projectId)) || (entry.data.workflowId && workflowById.has(entry.data.workflowId)) ? (
+              <span class="gallery-item__links">
+                {entry.data.projectId && projectById.get(entry.data.projectId) && <a href={withBase(`projects/${entry.data.projectId}/`)} aria-label={`查看项目：${projectById.get(entry.data.projectId)?.data.title}`}>项目详情 ↗</a>}
+                {entry.data.workflowId && workflowById.get(entry.data.workflowId) && <a href={withBase(`workflows/${entry.data.workflowId}/`)} aria-label={`查看工作流：${workflowById.get(entry.data.workflowId)?.data.title}`}>工作流详情 ↗</a>}
+              </span>
+            ) : null}
           </figcaption>
         </figure>
       ))}
     </div>
-    <p class="gallery-empty" data-gallery-empty hidden>这个分类暂时没有作品。</p>
+    <p class="gallery-empty" data-gallery-empty hidden>当前筛选条件下暂时没有作品。</p>
   </section>
   <Lightbox />
   <script>

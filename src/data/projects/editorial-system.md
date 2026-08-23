@@ -19,10 +19,12 @@ gallery:
     alt: 暖米色背景上的工作流节点与曲线
     width: 1600
     height: 1000
+    caption: 横版演示画面：暖米色底上以节点、曲线和大字构成从左向右展开的工作流结构。
   - src: /images/demo/workflow-orbit.svg
     alt: 深咖啡背景上的内容轨道图形
     width: 1200
     height: 1500
+    caption: 竖版演示画面：深咖啡底上以三组轨道、圆点和上下文字构成中心聚拢的结构。
 tools:
   - Photoshop
   - AI 图像工具

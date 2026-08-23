@@ -3,8 +3,15 @@ order: 20
 draft: false
 demo: true
 category: 自媒体封面
+era: hybrid
+description: 用于验证竖版作品展示与灯箱切换的演示资产：深咖啡画面以暖色轨道、圆点和上下文字组织，不代表真实发布成果。
 year: 2026
+tools:
+  - SVG
+  - AI 辅助编排
+  - 人工版式调整
 featured: true
+workflowId: wechat-writing
 image:
   src: /images/demo/workflow-orbit.svg
   alt: 深咖啡背景上的暖色轨道构图

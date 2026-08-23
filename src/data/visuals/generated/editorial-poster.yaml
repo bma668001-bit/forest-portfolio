@@ -3,9 +3,15 @@ order: 10
 draft: false
 demo: true
 category: 海报
+era: ai-assisted
+description: 用于验证横版作品展示与内容关联的演示资产：暖米色画面以抽象节点、曲线和编辑式大字组织，不代表客户项目。
 year: 2026
+tools:
+  - SVG
+  - AI 辅助编排
 featured: true
 projectId: editorial-system
+workflowId: wechat-writing
 image:
   src: /images/demo/workflow-field.svg
   alt: 暖米色背景上的抽象节点与编辑式大字
