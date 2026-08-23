@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { profile: CollectionEntry<'profile'>['data']; }
+const { profile } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="contact">
+  <div class="shell">
+    <div class="site-footer__grid">
+      <div>
+        <p class="eyebrow">OPEN FOR CONVERSATION / 保持联系</p>
+        <h2>把想法变成能运行的东西。</h2>
+      </div>
+      <div class="site-footer__meta">
+        <p>{profile.status}</p>
+        {profile.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}
+        {profile.wechatQr && <img src={profile.wechatQr} alt="微信联系二维码" width="180" height="180" loading="lazy" />}
+        {!profile.email && !profile.wechatQr && <p>联系方式将在正式素材阶段补充。</p>}
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© {year} AI WORKFLOW / VISUAL PRACTICE</span>
+      <span>DESIGNED TO KEEP EVOLVING</span>
+    </div>
+  </div>
+</footer>

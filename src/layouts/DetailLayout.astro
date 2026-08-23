@@ -1,0 +1,19 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props { title: string; description: string; backHref: string; backLabel: string; }
+const { title, description, backHref, backLabel } = Astro.props;
+---
+
+<BaseLayout title={`${title} — AI WORKFLOW / VISUAL PRACTICE`} description={description}>
+  <article class="detail shell">
+    <a class="detail__back" href={backHref}>← {backLabel}</a>
+    <header>
+      <slot name="meta" />
+      <h1>{title}</h1>
+      <p class="detail__summary">{description}</p>
+    </header>
+    <div class="detail__body"><slot /></div>
+    <slot name="pagination" />
+  </article>
+</BaseLayout>
