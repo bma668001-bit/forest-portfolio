@@ -1,0 +1,23 @@
+[
+  {
+    "id": "editorial-poster",
+    "file": "demo/workflow-field.svg",
+    "title": "编辑式海报实验",
+    "alt": "暖米色背景上的抽象节点与编辑式大字",
+    "category": "海报",
+    "year": 2026,
+    "order": 10,
+    "featured": true,
+    "projectId": "editorial-system"
+  },
+  {
+    "id": "social-cover",
+    "file": "demo/workflow-orbit.svg",
+    "title": "自媒体封面实验",
+    "alt": "深咖啡背景上的暖色轨道构图",
+    "category": "自媒体封面",
+    "year": 2026,
+    "order": 20,
+    "featured": true
+  }
+]
