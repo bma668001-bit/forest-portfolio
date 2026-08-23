@@ -22,6 +22,14 @@ describe('visual manifest', () => {
     expect(() => normalizeManifest([{ ...valid, file: '../secret.png' }])).toThrow(/unsafe file path/i);
   });
 
+  it('preserves and renders the demo flag', () => {
+    const [normalized] = normalizeManifest([{ ...valid, demo: true }]);
+    const rendered = renderVisualYaml(normalized, { width: 1600, height: 1000 });
+
+    expect(normalized.demo).toBe(true);
+    expect(rendered).toContain('demo: true');
+  });
+
   it('renders deterministic content fields', () => {
     const rendered = renderVisualYaml(valid, { width: 1600, height: 1000 });
 

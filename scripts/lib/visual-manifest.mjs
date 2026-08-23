@@ -42,6 +42,7 @@ export function normalizeManifest(input) {
       year: source.year,
       order: source.order,
       draft: source.draft === true,
+      demo: source.demo === true,
       featured: source.featured === true,
       ...(source.projectId ? { projectId: source.projectId } : {}),
     };
@@ -56,6 +57,7 @@ export function renderVisualYaml(entry, dimensions) {
     title: entry.title,
     order: entry.order,
     draft: entry.draft === true,
+    demo: entry.demo === true,
     category: entry.category,
     year: entry.year,
     featured: entry.featured === true,
