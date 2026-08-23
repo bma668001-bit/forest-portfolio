@@ -7,8 +7,10 @@ if (gallery) {
   const dialog = document.querySelector<HTMLDialogElement>('[data-lightbox]');
   const dialogImage = dialog?.querySelector<HTMLImageElement>('[data-lightbox-image]');
   const caption = dialog?.querySelector<HTMLElement>('[data-lightbox-caption]');
+  const stage = dialog?.querySelector<HTMLElement>('[data-lightbox-stage]');
   let lastTrigger: HTMLButtonElement | null = null;
   let activeIndex = 0;
+  let swipeStart: { pointerId: number; x: number; y: number } | null = null;
 
   filters.forEach((button) => button.addEventListener('click', () => {
     const selected = button.dataset.filter ?? '全部';
@@ -53,4 +55,16 @@ if (gallery) {
   dialog?.querySelector('[data-lightbox-next]')?.addEventListener('click', () => move(1));
   dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
   dialog?.addEventListener('close', () => window.requestAnimationFrame(() => lastTrigger?.focus()));
+  stage?.addEventListener('pointerdown', (event) => {
+    if (!event.isPrimary) return;
+    swipeStart = { pointerId: event.pointerId, x: event.clientX, y: event.clientY };
+  });
+  stage?.addEventListener('pointerup', (event) => {
+    if (!swipeStart || event.pointerId !== swipeStart.pointerId) return;
+    const deltaX = event.clientX - swipeStart.x;
+    const deltaY = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(deltaX) >= 56 && Math.abs(deltaY) < 48) move(deltaX < 0 ? 1 : -1);
+  });
+  stage?.addEventListener('pointercancel', () => { swipeStart = null; });
 }
