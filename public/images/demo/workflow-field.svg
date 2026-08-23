@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">抽象工作流场</title>
+  <desc id="desc">暖米色背景上由细线、节点和大字组成的抽象编辑式图形</desc>
+  <rect width="1600" height="1000" fill="#e9dfcf"/>
+  <g fill="none" stroke="#5a4032" stroke-width="2" opacity=".45">
+    <path d="M120 720C390 180 690 890 940 310S1370 190 1510 610"/>
+    <path d="M60 420C380 650 520 120 850 520s520 290 690-210"/>
+  </g>
+  <g fill="#a85f3b"><circle cx="290" cy="460" r="16"/><circle cx="740" cy="590" r="22"/><circle cx="1170" cy="350" r="13"/></g>
+  <g fill="#c6a36a"><circle cx="470" cy="300" r="9"/><circle cx="980" cy="700" r="12"/><circle cx="1400" cy="510" r="8"/></g>
+  <text x="110" y="180" fill="#241b16" font-family="Georgia,serif" font-size="110" font-weight="700">FLOW / 01</text>
+  <text x="114" y="850" fill="#241b16" font-family="sans-serif" font-size="26" letter-spacing="8">SYSTEMS IN MOTION</text>
+</svg>

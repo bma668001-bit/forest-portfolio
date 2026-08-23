@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">抽象内容轨道</title>
+  <desc id="desc">深咖啡背景上围绕中心文字运行的陶土与沙金色轨道</desc>
+  <rect width="1200" height="1500" fill="#30231d"/>
+  <g transform="translate(600 730) rotate(-18)" fill="none">
+    <ellipse rx="440" ry="210" stroke="#c6a36a" stroke-width="4" opacity=".8"/>
+    <ellipse rx="330" ry="500" stroke="#a85f3b" stroke-width="3" opacity=".7"/>
+    <ellipse rx="180" ry="590" stroke="#ede6d8" stroke-width="2" opacity=".35"/>
+  </g>
+  <circle cx="600" cy="730" r="34" fill="#a85f3b"/>
+  <circle cx="890" cy="430" r="18" fill="#c6a36a"/>
+  <circle cx="320" cy="1120" r="13" fill="#ede6d8"/>
+  <text x="90" y="160" fill="#ede6d8" font-family="Georgia,serif" font-size="92" font-weight="700">ORBIT</text>
+  <text x="90" y="1360" fill="#ede6d8" font-family="sans-serif" font-size="22" letter-spacing="7">CONTENT / IMAGE / MOTION</text>
+</svg>

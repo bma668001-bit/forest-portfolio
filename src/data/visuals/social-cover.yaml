@@ -1,0 +1,11 @@
+title: 自媒体封面实验
+order: 20
+draft: false
+category: 自媒体封面
+year: 2026
+featured: true
+image:
+  src: /images/demo/workflow-orbit.svg
+  alt: 深咖啡背景上的暖色轨道构图
+  width: 1200
+  height: 1500
