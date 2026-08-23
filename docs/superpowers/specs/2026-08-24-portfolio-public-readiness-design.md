@@ -100,7 +100,7 @@ GitHub Actions 使用仓库变量 `SITE_URL`；未设置时根据仓库所有者
 - 图片长边和文件大小超过建议值时给出明确警告
 - profile 内容集合恰好一个文件
 
-`npm run content:preflight` 执行结构与文件检查；`npm run content:release` 额外要求至少一个非演示工作流、一个非演示项目、若干真实视觉作品，以及可用的邮箱或微信二维码。严格阈值写进脚本并在发布清单中说明，不混入普通本地构建。
+`npm run content:preflight` 执行结构与文件检查；`npm run content:release` 额外要求至少一个非演示工作流、一个非演示项目、六张非演示视觉作品，以及可用的邮箱或微信二维码。严格校验不混入普通本地构建。
 
 删除视觉清单记录后，生成器支持受限的 `--prune`：只删除 `src/data/visuals/generated/` 中不再对应清单的 YAML，并在操作前输出具体文件；不会触碰其他目录或手写内容。
 
