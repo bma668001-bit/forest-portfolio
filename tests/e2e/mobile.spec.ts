@@ -9,6 +9,24 @@ for (const width of [320, 390, 768]) {
   });
 }
 
+for (const width of [320, 390]) {
+  test(`homepage display heading fits inside the ${width}px viewport`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto('/');
+    const headingSize = await page.locator('.hero h1').evaluate((heading) => {
+      const firstLine = document.createRange();
+      firstLine.selectNodeContents(heading.firstChild as Text);
+      const lineRects = [...firstLine.getClientRects()];
+      return {
+        minLeft: Math.min(...lineRects.map((rect) => rect.left)),
+        maxRight: Math.max(...lineRects.map((rect) => rect.right)),
+      };
+    });
+    expect(headingSize.minLeft).toBeGreaterThanOrEqual(0);
+    expect(headingSize.maxRight).toBeLessThanOrEqual(width + 1);
+  });
+}
+
 test('mobile navigation locks and restores page scrolling', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');

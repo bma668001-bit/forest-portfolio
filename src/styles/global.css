@@ -202,7 +202,7 @@ button { color: inherit; }
   .site-footer__bottom { flex-direction: column; gap: .75rem; }
   .hero__topline p:last-child { display: none; }
   .hero { min-height: 100svh; min-height: 100dvh; }
-  .hero h1 { font-size: clamp(3.35rem, 17.5vw, 6rem); letter-spacing: -.07em; }
+  .hero h1 { font-size: clamp(2.5rem, 12.8vw, 5rem); letter-spacing: -.07em; }
   .hero h1 em { padding-left: 1rem; }
   .hero__foot span:last-child { display: none; }
   .visual-feature-grid { grid-template-columns: 1fr; }
