@@ -1,5 +1,6 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import DemoBadge from '../../components/DemoBadge.astro';
 import DetailLayout from '../../layouts/DetailLayout.astro';
 import { filterPublished, sortByOrder } from '../../lib/content';
 import { withBase } from '../../lib/url';
@@ -31,7 +32,7 @@ const statusLabel = { active: '每天使用', evolving: '持续优化', archived
 
 <DetailLayout title={entry.data.title} description={entry.data.summary} backHref="workflows/" backLabel="返回工作流档案">
   <div slot="meta" class="detail-meta">
-    <span>{entry.data.year}</span><span>{statusLabel}</span><span>{entry.data.tools.join(' / ')}</span>
+    <span>{entry.data.year}</span><span>{statusLabel}</span><span>{entry.data.tools.join(' / ')}</span><DemoBadge demo={entry.data.demo} />
   </div>
   <img class="detail-cover" src={withBase(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />
   {version && <p class="version-link">由旧版本发展而来：<a href={withBase(`workflows/${version.id}/`)}>{version.data.title}</a></p>}

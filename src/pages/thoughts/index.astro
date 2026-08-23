@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import DemoBadge from '../../components/DemoBadge.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { filterPublished } from '../../lib/content';
 import { withBase } from '../../lib/url';
@@ -22,7 +23,7 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
         <div class="article-index">
           {articles.map((entry, index) => (
             <a href={withBase(`thoughts/${entry.id}/`)}>
-              <span>{String(index + 1).padStart(2, '0')} / {date(entry.data.publishedAt)}</span>
+              <span class="article-index__meta">{String(index + 1).padStart(2, '0')} / {date(entry.data.publishedAt)} <DemoBadge demo={entry.data.demo} /></span>
               <h3>{entry.data.title}</h3>
               <p>{entry.data.summary}</p>
               <b aria-hidden="true">↗</b>
@@ -35,7 +36,7 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
       <section class="thoughts-block" aria-labelledby="notes-heading" data-reveal>
         <h2 id="notes-heading">短灵感</h2>
         <ol class="notes-index">
-          {notes.map((entry) => <li><time datetime={entry.data.publishedAt.toISOString()}>{date(entry.data.publishedAt)}</time><p>{entry.data.text}</p></li>)}
+          {notes.map((entry) => <li><span class="notes-index__meta"><time datetime={entry.data.publishedAt.toISOString()}>{date(entry.data.publishedAt)}</time><DemoBadge demo={entry.data.demo} /></span><p>{entry.data.text}</p></li>)}
         </ol>
       </section>
     )}

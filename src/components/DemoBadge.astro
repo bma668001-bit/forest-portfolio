@@ -1,0 +1,6 @@
+---
+interface Props { demo?: boolean; }
+const { demo = false } = Astro.props;
+---
+
+{demo && <span class="demo-badge" data-demo-badge>结构示例</span>}

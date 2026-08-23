@@ -70,6 +70,9 @@ button { color: inherit; }
 .hero h1 { margin: 0; font: 600 clamp(4.1rem, 12.4vw, 13rem)/.76 var(--display); letter-spacing: -.075em; }
 .hero h1 em { display: block; padding-left: clamp(2rem, 11vw, 12rem); font-weight: 400; color: var(--clay); }
 .hero__role { width: min(25rem, 70%); margin: 2rem 4vw 0 auto; font-size: clamp(1rem, 1.6vw, 1.3rem); }
+.hero__actions { width: min(25rem, 70%); margin: 1.25rem 4vw 0 auto; display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; }
+.hero__actions a { padding-bottom: .15rem; border-bottom: 1px solid var(--ink); text-decoration: none; font-size: .76rem; letter-spacing: .05em; }
+.hero__actions a:hover { color: var(--clay); border-color: var(--clay); }
 .hero__foot { padding-block: 1rem; border-top: 1px solid var(--line); }
 
 .home-section { padding-block: var(--section-space); }
@@ -100,6 +103,7 @@ button { color: inherit; }
 .thought-preview { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(3rem, 8vw, 9rem); }
 .article-lead { text-decoration: none; }
 .article-lead > span, .note-list span { font-size: .68rem; letter-spacing: .08em; }
+.article-lead__meta, .note-list__meta { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; }
 .article-lead h3 { margin: 2rem 0 1rem; font: 600 clamp(2.5rem, 5vw, 5.8rem)/.94 var(--display); letter-spacing: -.05em; }
 .article-lead p { max-width: 38rem; }
 .note-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
@@ -110,8 +114,20 @@ button { color: inherit; }
 .about-section__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 10vw, 12rem); }
 .about-section h2 { margin: 1rem 0 0; font: 600 clamp(4rem, 9vw, 9rem)/.83 var(--display); letter-spacing: -.065em; }
 .about-section__lead { margin-top: 0; font: 400 clamp(1.6rem, 3vw, 3rem)/1.2 var(--display); }
+.experience-list { list-style: none; margin: 2.5rem 0 0; padding: 0; border-top: 1px solid var(--line); }
+.experience-list li { display: grid; grid-template-columns: minmax(5.5rem, .55fr) 2fr; gap: 1.25rem; padding-block: 1rem; border-bottom: 1px solid var(--line); align-items: baseline; }
+.experience-list span { font-size: .68rem; font-weight: 700; letter-spacing: .08em; }
+.experience-list p { margin: 0; font: 400 clamp(1.05rem, 1.8vw, 1.35rem)/1.35 var(--display); }
+.profile-facts { margin: 2rem 0 0; padding: 0; }
+.profile-facts div { display: grid; grid-template-columns: minmax(5.5rem, .55fr) 2fr; gap: 1.25rem; padding-block: .55rem; }
+.profile-facts dt { font-size: .68rem; font-weight: 700; letter-spacing: .08em; }
+.profile-facts dd { margin: 0; }
 .tool-list { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 2rem 0; }
 .tool-list li { padding: .5rem .85rem; border: 1px solid var(--line); border-radius: 100%; font-size: .76rem; }
+.profile-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-bottom: 1.25rem; }
+.profile-links > a, .profile-links ul { margin: 0; }
+.profile-links ul { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; padding: 0; list-style: none; }
+.about-section__next { display: inline-block; }
 
 .detail { padding-block: 8rem var(--section-space); }
 .detail__back { display: inline-block; margin-bottom: 6rem; font-size: .78rem; }
@@ -162,6 +178,7 @@ button { color: inherit; }
 .article-index { border-top: 1px solid var(--line); }
 .article-index a { position: relative; display: grid; grid-template-columns: 1fr 3fr auto; gap: 1.5rem; padding-block: 1.5rem 2.5rem; border-bottom: 1px solid var(--line); text-decoration: none; }
 .article-index span, .notes-index time { font-size: .68rem; letter-spacing: .08em; }
+.article-index__meta, .notes-index__meta { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; align-self: start; }
 .article-index h3 { grid-column: 2; margin: 0; font: 600 clamp(1.8rem, 3.5vw, 3.8rem)/1 var(--display); letter-spacing: -.04em; }
 .article-index p { grid-column: 2; max-width: 36rem; margin: 0; }
 .article-index b { grid-column: 3; grid-row: 1 / 4; align-self: center; font-size: 1.4rem; }
@@ -173,6 +190,7 @@ button { color: inherit; }
 .not-found h1 { max-width: 10ch; margin: 1rem 0 2rem; font: 600 clamp(4rem, 12vw, 12rem)/.82 var(--display); letter-spacing: -.065em; }
 .not-found > p:not(.not-found__code) { max-width: 32rem; margin-left: auto; }
 .not-found nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+span.demo-badge { display: inline-flex; align-items: center; width: max-content; padding: .2rem .42rem; border: 1px solid color-mix(in srgb, var(--clay) 55%, transparent); border-radius: 100%; color: var(--clay); background: color-mix(in srgb, var(--paper) 72%, transparent); font: 700 .58rem/1 var(--body); letter-spacing: .08em; white-space: nowrap; vertical-align: .14em; }
 
 @media (max-width: 960px) {
   .site-header { mix-blend-mode: normal; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(16px); }
@@ -202,9 +220,14 @@ button { color: inherit; }
   .site-footer__bottom { flex-direction: column; gap: .75rem; }
   .hero__topline p:last-child { display: none; }
   .hero { min-height: 100svh; min-height: 100dvh; }
+  .hero__title-wrap { padding-block: 3rem 1.75rem; }
   .hero h1 { font-size: clamp(2.5rem, 12.8vw, 5rem); letter-spacing: -.07em; }
   .hero h1 em { padding-left: 1rem; }
+  .hero__role, .hero__actions { width: 86%; margin-right: 0; }
+  .hero__role { margin-top: 1.25rem; }
+  .hero__actions { margin-top: .9rem; gap: .65rem 1.15rem; }
   .hero__foot span:last-child { display: none; }
+  .site-footer h2 { font-size: clamp(2.8rem, 15vw, 5rem); }
   .visual-feature-grid { grid-template-columns: 1fr; }
   .visual-card:nth-child(even) { margin-top: 2rem; }
   .workflow-row > a { grid-template-columns: 2.3rem 1fr auto; gap: .75rem; }
@@ -221,6 +244,7 @@ button { color: inherit; }
   .article-index a, .notes-index li { grid-template-columns: 1fr; }
   .article-index h3, .article-index p { grid-column: 1; }
   .article-index b { grid-column: 1; grid-row: auto; }
+  .experience-list li, .profile-facts div { grid-template-columns: 1fr; gap: .35rem; }
   .project-facts { grid-template-columns: 1fr; }
   .project-gallery__item:nth-child(even) { width: 100%; }
   .gallery-item figcaption { flex-wrap: wrap; gap: .5rem 1rem; }

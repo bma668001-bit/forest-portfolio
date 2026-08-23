@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import DemoBadge from './DemoBadge.astro';
 import SectionHeading from './SectionHeading.astro';
 import VisualCard from './VisualCard.astro';
 import WorkflowCard from './WorkflowCard.astro';
@@ -14,6 +15,11 @@ interface Props {
 }
 const { profile, workflows, visuals, articles, notes } = Astro.props;
 const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(value);
+const location = profile.location.trim();
+const availability = profile.availability.trim();
+const resumeUrl = profile.resumeUrl.trim();
+const socialLinks = profile.socialLinks.filter(({ label, url }) => label.trim() && url.trim());
+const hasContact = Boolean(profile.email.trim() || profile.wechatQr.trim());
 ---
 
 {workflows.length > 0 && (
@@ -47,10 +53,10 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
     <div class="thought-preview">
       {articles[0] && (
         <a class="article-lead" href={withBase(`thoughts/${articles[0].id}/`)}>
-          <span>{date(articles[0].data.publishedAt)}</span><h3>{articles[0].data.title}</h3><p>{articles[0].data.summary}</p>
+          <span class="article-lead__meta">{date(articles[0].data.publishedAt)} <DemoBadge demo={articles[0].data.demo} /></span><h3>{articles[0].data.title}</h3><p>{articles[0].data.summary}</p>
         </a>
       )}
-      {notes.length > 0 && <ol class="note-list">{notes.map((entry) => <li><span>{date(entry.data.publishedAt)}</span><p>{entry.data.text}</p></li>)}</ol>}
+      {notes.length > 0 && <ol class="note-list">{notes.map((entry) => <li><span class="note-list__meta">{date(entry.data.publishedAt)} <DemoBadge demo={entry.data.demo} /></span><p>{entry.data.text}</p></li>)}</ol>}
     </div>
   </section>
 )}
@@ -60,8 +66,31 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
     <div><p class="eyebrow">05 / PROFILE</p><h2 id="about-title">关于与联系</h2></div>
     <div class="about-section__copy">
       <p class="about-section__lead">{profile.bio}</p><p>{profile.status}</p>
+      <ol class="experience-list" aria-label="经历">
+        {profile.experience.map((item) => (
+          <li><span>{item.period}</span><p>{item.label}</p></li>
+        ))}
+      </ol>
+      {(location || availability) && (
+        <dl class="profile-facts">
+          {location && <div data-profile-location><dt>所在地</dt><dd>{location}</dd></div>}
+          {availability && <div data-profile-availability><dt>合作状态</dt><dd>{availability}</dd></div>}
+        </dl>
+      )}
       <ul class="tool-list" aria-label="核心工具">{profile.tools.map((tool) => <li>{tool}</li>)}</ul>
-      <a href={withBase('#contact')}>到联系方式 ↓</a>
+      {(resumeUrl || socialLinks.length > 0) && (
+        <div class="profile-links">
+          {resumeUrl && <a data-profile-resume href={withBase(resumeUrl)}>查看简历 ↗</a>}
+          {socialLinks.length > 0 && (
+            <ul data-profile-social-links aria-label="社交链接">
+              {socialLinks.map((link) => <li><a href={withBase(link.url)}>{link.label} ↗</a></li>)}
+            </ul>
+          )}
+        </div>
+      )}
+      {hasContact
+        ? <a class="about-section__next" href={withBase('#contact')}>到联系方式 ↓</a>
+        : <a class="about-section__next" href={withBase('visuals/')}>继续浏览视觉作品 ↗</a>}
     </div>
   </div>
 </section>

@@ -1,5 +1,8 @@
 ---
 import { withBase } from '../lib/url';
+
+interface Props { hasContact?: boolean; }
+const { hasContact = false } = Astro.props;
 ---
 
 <header class="site-header">
@@ -11,7 +14,7 @@ import { withBase } from '../lib/url';
       <a href={withBase('thoughts/')}>思考</a>
       <a href={withBase('/#about')}>关于</a>
     </nav>
-    <a class="contact-anchor" href={withBase('/#contact')}>联系 / CONTACT</a>
+    {hasContact && <a class="contact-anchor" href={withBase('/#contact')}>联系 / CONTACT</a>}
     <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" data-nav-toggle>菜单</button>
   </div>
 </header>

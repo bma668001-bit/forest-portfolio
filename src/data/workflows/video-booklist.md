@@ -4,6 +4,7 @@ summary: 把书单选题、脚本、画面与批量产出串联起来的流程�
 year: 2026
 order: 20
 draft: false
+demo: true
 status: evolving
 featured: true
 cover:

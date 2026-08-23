@@ -7,6 +7,7 @@
     "category": "海报",
     "year": 2026,
     "order": 10,
+    "demo": true,
     "featured": true,
     "projectId": "editorial-system"
   },
@@ -18,6 +19,7 @@
     "category": "自媒体封面",
     "year": 2026,
     "order": 20,
+    "demo": true,
     "featured": true
   }
 ]

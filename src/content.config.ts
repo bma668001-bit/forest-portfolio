@@ -13,6 +13,7 @@ const base = {
   title: z.string().min(1),
   order: z.number().int(),
   draft: z.boolean().default(false),
+  demo: z.boolean().default(false),
 };
 
 const workflows = defineCollection({
@@ -85,6 +86,13 @@ const profile = defineCollection({
     bio: z.string().min(1),
     email: z.string(),
     wechatQr: z.string(),
+    location: z.string().default(''),
+    availability: z.string().default(''),
+    resumeUrl: z.string().default(''),
+    socialLinks: z.array(z.object({
+      label: z.string().min(1),
+      url: z.string().min(1),
+    })).default([]),
     tools: z.array(z.string()),
     experience: z.array(z.object({ period: z.string(), label: z.string() })),
   }),

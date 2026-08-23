@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import DemoBadge from '../../components/DemoBadge.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { filterPublished, sortByOrder } from '../../lib/content';
@@ -28,7 +29,7 @@ const categories = ['全部', ...new Set(visuals.map((entry) => entry.data.categ
             <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
           </button>
           <figcaption>
-            <span>{entry.data.title}</span><span>{entry.data.category} / {entry.data.year}</span>
+            <span>{entry.data.title} <DemoBadge demo={entry.data.demo} /></span><span>{entry.data.category} / {entry.data.year}</span>
             {entry.data.projectId && projectById.get(entry.data.projectId) && <a href={withBase(`projects/${entry.data.projectId}/`)} aria-label={`查看项目：${projectById.get(entry.data.projectId)?.data.title}`}>项目详情 ↗</a>}
           </figcaption>
         </figure>

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import DemoBadge from './DemoBadge.astro';
 import { withBase } from '../lib/url';
 
 interface Props { entry: CollectionEntry<'workflows'>; index: number; }
@@ -11,7 +12,7 @@ const statusLabel = { active: '每天使用', evolving: '持续优化', archived
 <article class="workflow-row" data-reveal style={`--reveal-index:${index}`}>
   <a href={href} aria-label={`查看工作流：${entry.data.title}`}>
     <span class="workflow-row__index">{String(index + 1).padStart(2, '0')}</span>
-    <span class="workflow-row__title">{entry.data.title}</span>
+    <span class="workflow-row__title">{entry.data.title} <DemoBadge demo={entry.data.demo} /></span>
     <span class="workflow-row__summary">{entry.data.summary}</span>
     <span class="workflow-row__status" data-status={entry.data.status}>{statusLabel}</span>
     <span class="workflow-row__arrow">↗</span>

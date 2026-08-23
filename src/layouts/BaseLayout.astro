@@ -30,6 +30,7 @@ const {
   structuredData,
 } = Astro.props;
 const [profileEntry] = await getCollection('profile');
+const hasContact = Boolean(profileEntry.data.email.trim() || profileEntry.data.wechatQr.trim());
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(withBase(image), Astro.site);
 const publishedTime = publishedAt ? new Date(publishedAt).toISOString() : undefined;
@@ -67,7 +68,7 @@ const serializedStructuredData = structuredData
   </head>
   <body>
     <a class="skip-link" href={withBase('#main')}>跳到主要内容</a>
-    <Header />
+    <Header hasContact={hasContact} />
     <main id="main"><slot /></main>
     <Footer profile={profileEntry.data} />
     <script>

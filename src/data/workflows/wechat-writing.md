@@ -4,6 +4,7 @@ summary: 从选题、资料整理到初稿与视觉提示的日常内容工作�
 year: 2026
 order: 10
 draft: false
+demo: true
 status: active
 featured: true
 cover:

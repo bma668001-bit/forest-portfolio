@@ -8,10 +8,10 @@ test('primary navigation reaches every archive', async ({ page }) => {
   await expect(page.getByRole('link', { name: '思考', exact: true })).toHaveAttribute('href', /thoughts/);
 });
 
-test('header section links return detail pages to the home page', async ({ page }) => {
+test('header section links return detail pages home without an empty contact target', async ({ page }) => {
   await page.goto('/workflows/wechat-writing/');
   await expect(page.getByRole('link', { name: '关于', exact: true })).toHaveAttribute('href', '/#about');
-  await expect(page.locator('.contact-anchor')).toHaveAttribute('href', '/#contact');
+  await expect(page.locator('.contact-anchor')).toHaveCount(0);
 });
 
 test('mobile menu opens and closes with accessible state', async ({ page }) => {

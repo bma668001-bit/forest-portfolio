@@ -1,6 +1,9 @@
 ---
+import { withBase } from '../lib/url';
+
 interface Props { role: string; status: string; }
 const { role, status } = Astro.props;
+const year = new Date().getFullYear();
 ---
 
 <section class="hero shell" data-hero-field data-motion="pending">
@@ -11,12 +14,16 @@ const { role, status } = Astro.props;
     <span class="hero__node hero__node--three">SYSTEM</span>
   </div>
   <div class="hero__topline">
-    <p class="eyebrow">PORTFOLIO / 2026</p>
+    <p class="eyebrow">PORTFOLIO / <span data-portfolio-year>{year}</span></p>
     <p>{status}</p>
   </div>
   <div class="hero__title-wrap">
     <h1>AI WORKFLOW<br /><em>VISUAL PRACTICE</em></h1>
     <p class="hero__role">{role}</p>
+    <nav class="hero__actions" aria-label="作品入口">
+      <a href={withBase('workflows/')}>查看工作流</a>
+      <a href={withBase('visuals/')}>浏览视觉作品</a>
+    </nav>
   </div>
   <div class="hero__foot">
     <span>SCROLL TO EXPLORE</span>

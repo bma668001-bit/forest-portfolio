@@ -7,6 +7,7 @@ role: 视觉方向、版式与 AI 工作流设计
 duration: 框架演示项目
 order: 10
 draft: false
+demo: true
 featured: true
 cover:
   src: /images/demo/workflow-field.svg
