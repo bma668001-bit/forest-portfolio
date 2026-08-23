@@ -18,3 +18,11 @@ test('mobile menu opens and closes with accessible state', async ({ page }) => {
   await closeButton.click();
   await expect(page.getByRole('button', { name: '打开导航' })).toHaveAttribute('aria-expanded', 'false');
 });
+
+test('workflow archive exposes status and detail routes', async ({ page }) => {
+  await page.goto('/workflows/');
+  await expect(page.getByRole('heading', { level: 1, name: '工作流档案' })).toBeVisible();
+  await page.getByRole('link', { name: /公众号快速创作/ }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('公众号快速创作');
+  await expect(page.getByRole('link', { name: '返回工作流档案' })).toBeVisible();
+});
