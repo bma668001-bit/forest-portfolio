@@ -1,0 +1,29 @@
+---
+interface Props { role: string; status: string; }
+const { role, status } = Astro.props;
+---
+
+<section class="hero shell" data-hero-field data-motion="pending">
+  <div class="hero__canvas" aria-hidden="true">
+    <canvas></canvas>
+    <span class="hero__node hero__node--one">CONTENT</span>
+    <span class="hero__node hero__node--two">IMAGE</span>
+    <span class="hero__node hero__node--three">SYSTEM</span>
+  </div>
+  <div class="hero__topline">
+    <p class="eyebrow">PORTFOLIO / 2026</p>
+    <p>{status}</p>
+  </div>
+  <div class="hero__title-wrap">
+    <h1>AI WORKFLOW<br /><em>VISUAL PRACTICE</em></h1>
+    <p class="hero__role">{role}</p>
+  </div>
+  <div class="hero__foot">
+    <span>SCROLL TO EXPLORE</span>
+    <span>DESIGN × AI × SYSTEM</span>
+  </div>
+</section>
+
+<script>
+  import '../scripts/hero-field';
+</script>

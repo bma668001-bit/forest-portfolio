@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+import VisualCard from './VisualCard.astro';
+import WorkflowCard from './WorkflowCard.astro';
+
+interface Props {
+  profile: CollectionEntry<'profile'>['data'];
+  workflows: CollectionEntry<'workflows'>[];
+  visuals: CollectionEntry<'visuals'>[];
+  articles: CollectionEntry<'articles'>[];
+  notes: CollectionEntry<'notes'>[];
+}
+const { profile, workflows, visuals, articles, notes } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
+const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(value);
+---
+
+{workflows.length > 0 && (
+  <section class="home-section shell">
+    <SectionHeading eyebrow="01 / SYSTEMS" title="工作流精选" href={link('workflows/')} linkLabel="全部工作流" />
+    <div class="workflow-list">{workflows.map((entry, index) => <WorkflowCard entry={entry} index={index} />)}</div>
+  </section>
+)}
+
+{visuals.length > 0 && (
+  <section class="home-section shell">
+    <SectionHeading eyebrow="02 / VISUALS" title="视觉实践" href={link('visuals/')} linkLabel="全部作品" />
+    <div class="visual-feature-grid">{visuals.map((entry) => <VisualCard entry={entry} />)}</div>
+  </section>
+)}
+
+<section class="legacy-band" aria-label="传统设计基础">
+  <div class="shell legacy-band__inner">
+    <p class="eyebrow">03 / FOUNDATION</p>
+    <p class="legacy-band__word">PS<br />BEFORE AI</p>
+    <div class="legacy-band__copy">
+      <p>海报、电商主图、自媒体封面、活动排版与节日热点图。</p>
+      <p>传统设计作品不会抢走主叙事，但会留下判断构图、字体和商业场景的基础。</p>
+    </div>
+  </div>
+</section>
+
+{(articles.length > 0 || notes.length > 0) && (
+  <section class="home-section shell">
+    <SectionHeading eyebrow="04 / NOTES" title="最近在想" href={link('thoughts/')} linkLabel="全部思考" />
+    <div class="thought-preview">
+      {articles[0] && (
+        <a class="article-lead" href={link(`thoughts/${articles[0].id}/`)}>
+          <span>{date(articles[0].data.publishedAt)}</span><h3>{articles[0].data.title}</h3><p>{articles[0].data.summary}</p>
+        </a>
+      )}
+      {notes.length > 0 && <ol class="note-list">{notes.map((entry) => <li><span>{date(entry.data.publishedAt)}</span><p>{entry.data.text}</p></li>)}</ol>}
+    </div>
+  </section>
+)}
+
+<section class="about-section" id="about" aria-labelledby="about-title">
+  <div class="shell about-section__grid">
+    <div><p class="eyebrow">05 / PROFILE</p><h2 id="about-title">关于与联系</h2></div>
+    <div class="about-section__copy">
+      <p class="about-section__lead">{profile.bio}</p><p>{profile.status}</p>
+      <ul class="tool-list" aria-label="核心工具">{profile.tools.map((tool) => <li>{tool}</li>)}</ul>
+      <a href="#contact">到联系方式 ↓</a>
+    </div>
+  </div>
+</section>
