@@ -6,7 +6,7 @@ const { title, description, backHref, backLabel } = Astro.props;
 ---
 
 <BaseLayout title={`${title} — AI WORKFLOW / VISUAL PRACTICE`} description={description}>
-  <article class="detail shell">
+  <article class="detail shell" data-reveal>
     <a class="detail__back" href={backHref}>← {backLabel}</a>
     <header>
       <slot name="meta" />

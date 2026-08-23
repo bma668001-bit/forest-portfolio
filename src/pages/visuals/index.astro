@@ -13,18 +13,18 @@ const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 ---
 
 <BaseLayout title="视觉作品 — AI WORKFLOW / VISUAL PRACTICE" description="海报、电商、自媒体、活动与 AI 场景视觉作品档案。">
-  <header class="page-intro shell">
+  <header class="page-intro shell" data-reveal>
     <p class="eyebrow">VISUAL ARCHIVE / 持续更新</p>
     <h1>视觉作品</h1>
     <p>不同年代、不同工具与不同使用场景放在同一份视觉档案里。正式素材导入后，类别会由内容自动生成。</p>
   </header>
-  <section class="gallery-section shell">
+  <section class="gallery-section shell" data-reveal>
     <div class="gallery-filters" aria-label="作品分类">
       {categories.map((category, index) => <button type="button" data-filter={category} aria-pressed={index === 0 ? 'true' : 'false'}>{category}</button>)}
     </div>
     <div class="gallery-grid" data-gallery>
-      {visuals.map((entry) => (
-        <figure class="gallery-item" data-visual data-category={entry.data.category} style={`--ratio:${entry.data.image.width}/${entry.data.image.height}`}>
+      {visuals.map((entry, index) => (
+        <figure class="gallery-item" data-visual data-reveal data-category={entry.data.category} style={`--ratio:${entry.data.image.width}/${entry.data.image.height};--reveal-index:${index}`}>
           <button type="button" class="gallery-item__trigger" data-lightbox-trigger data-src={entry.data.image.src} data-alt={entry.data.image.alt} data-width={entry.data.image.width} data-height={entry.data.image.height} data-caption={`${entry.data.title} · ${entry.data.category} · ${entry.data.year}`}>
             <img src={entry.data.image.src} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
           </button>

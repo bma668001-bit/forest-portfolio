@@ -9,12 +9,12 @@ const workflows = filterPublished(await getCollection('workflows')).sort((a, b) 
 ---
 
 <BaseLayout title="工作流档案 — AI WORKFLOW / VISUAL PRACTICE" description="持续使用、优化与归档的 AI 内容和视觉工作流。">
-  <header class="page-intro shell">
+  <header class="page-intro shell" data-reveal>
     <p class="eyebrow">SYSTEM ARCHIVE / 持续新增</p>
     <h1>工作流档案</h1>
     <p>这里不是固定的五个项目。每当一个新流程进入日常使用，它就会按状态和顺序自动出现在这里。</p>
   </header>
-  <section class="archive shell" aria-label="全部工作流">
+  <section class="archive shell" aria-label="全部工作流" data-reveal>
     <div class="workflow-list">{workflows.map((entry, index) => <WorkflowCard entry={entry} index={index} />)}</div>
   </section>
 </BaseLayout>

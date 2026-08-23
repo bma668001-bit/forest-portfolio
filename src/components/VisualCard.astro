@@ -5,7 +5,7 @@ interface Props { entry: CollectionEntry<'visuals'>; }
 const { entry } = Astro.props;
 ---
 
-<figure class="visual-card" style={`--ratio:${entry.data.image.width}/${entry.data.image.height}`}>
+<figure class="visual-card" style={`--ratio:${entry.data.image.width}/${entry.data.image.height}`} data-reveal>
   <div class="visual-card__image">
     <img src={entry.data.image.src} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
   </div>

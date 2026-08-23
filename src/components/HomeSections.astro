@@ -18,20 +18,20 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
 ---
 
 {workflows.length > 0 && (
-  <section class="home-section shell">
+  <section class="home-section shell" data-reveal>
     <SectionHeading eyebrow="01 / SYSTEMS" title="工作流精选" href={link('workflows/')} linkLabel="全部工作流" />
     <div class="workflow-list">{workflows.map((entry, index) => <WorkflowCard entry={entry} index={index} />)}</div>
   </section>
 )}
 
 {visuals.length > 0 && (
-  <section class="home-section shell">
+  <section class="home-section shell" data-reveal>
     <SectionHeading eyebrow="02 / VISUALS" title="视觉实践" href={link('visuals/')} linkLabel="全部作品" />
     <div class="visual-feature-grid">{visuals.map((entry) => <VisualCard entry={entry} />)}</div>
   </section>
 )}
 
-<section class="legacy-band" aria-label="传统设计基础">
+<section class="legacy-band" aria-label="传统设计基础" data-reveal>
   <div class="shell legacy-band__inner">
     <p class="eyebrow">03 / FOUNDATION</p>
     <p class="legacy-band__word">PS<br />BEFORE AI</p>
@@ -43,7 +43,7 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
 </section>
 
 {(articles.length > 0 || notes.length > 0) && (
-  <section class="home-section shell">
+  <section class="home-section shell" data-reveal>
     <SectionHeading eyebrow="04 / NOTES" title="最近在想" href={link('thoughts/')} linkLabel="全部思考" />
     <div class="thought-preview">
       {articles[0] && (
@@ -56,7 +56,7 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
   </section>
 )}
 
-<section class="about-section" id="about" aria-labelledby="about-title">
+<section class="about-section" id="about" aria-labelledby="about-title" data-reveal>
   <div class="shell about-section__grid">
     <div><p class="eyebrow">05 / PROFILE</p><h2 id="about-title">关于与联系</h2></div>
     <div class="about-section__copy">

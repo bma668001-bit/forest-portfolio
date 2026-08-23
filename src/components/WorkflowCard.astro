@@ -8,7 +8,7 @@ const href = `${base}workflows/${entry.id}/`.replace(/\/+/g, '/');
 const statusLabel = { active: '每天使用', evolving: '持续优化', archived: '已归档' }[entry.data.status];
 ---
 
-<article class="workflow-row">
+<article class="workflow-row" data-reveal style={`--reveal-index:${index}`}>
   <a href={href} aria-label={`查看工作流：${entry.data.title}`}>
     <span class="workflow-row__index">{String(index + 1).padStart(2, '0')}</span>
     <span class="workflow-row__title">{entry.data.title}</span>

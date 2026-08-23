@@ -11,14 +11,14 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
 ---
 
 <BaseLayout title="思考与灵感 — AI WORKFLOW / VISUAL PRACTICE" description="关于设计、AI 工作流与内容实践的文章和短灵感。">
-  <header class="page-intro shell">
+  <header class="page-intro shell" data-reveal>
     <p class="eyebrow">NOTES & ARTICLES / 不定期记录</p>
     <h1>思考与灵感</h1>
     <p>不把这里写成教程仓库。只记录真实项目里值得留下的判断、失败、改法和偶然出现的念头。</p>
   </header>
   <div class="thoughts-page shell">
     {articles.length > 0 && (
-      <section class="thoughts-block" aria-labelledby="articles-heading">
+      <section class="thoughts-block" aria-labelledby="articles-heading" data-reveal>
         <h2 id="articles-heading">文章</h2>
         <div class="article-index">
           {articles.map((entry, index) => (
@@ -33,7 +33,7 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
       </section>
     )}
     {notes.length > 0 && (
-      <section class="thoughts-block" aria-labelledby="notes-heading">
+      <section class="thoughts-block" aria-labelledby="notes-heading" data-reveal>
         <h2 id="notes-heading">短灵感</h2>
         <ol class="notes-index">
           {notes.map((entry) => <li><time datetime={entry.data.publishedAt.toISOString()}>{date(entry.data.publishedAt)}</time><p>{entry.data.text}</p></li>)}

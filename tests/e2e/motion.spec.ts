@@ -14,3 +14,16 @@ test('reduced motion keeps the hero static and readable', async ({ page }) => {
   await expect(page.locator('[data-hero-field]')).toHaveAttribute('data-motion', 'reduced');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 });
+
+test('editorial sections reveal after entering the viewport', async ({ page }) => {
+  await page.goto('/');
+  const target = page.locator('[data-reveal]').first();
+  await target.scrollIntoViewIfNeeded();
+  await expect(target).toHaveAttribute('data-reveal-state', 'visible');
+});
+
+test('reduced motion reveals content immediately', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await expect(page.locator('[data-reveal]').first()).toHaveAttribute('data-reveal-state', 'visible');
+});

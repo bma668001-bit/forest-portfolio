@@ -32,5 +32,8 @@ const socialImage = image ? new URL(image, Astro.site) : undefined;
     <Header />
     <main id="main"><slot /></main>
     <Footer profile={profileEntry.data} />
+    <script>
+      import '../scripts/reveal';
+    </script>
   </body>
 </html>
