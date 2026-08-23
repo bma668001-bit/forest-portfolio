@@ -1,18 +1,17 @@
 ---
-const base = import.meta.env.BASE_URL;
-const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
+import { withBase } from '../lib/url';
 ---
 
 <header class="site-header">
   <div class="site-header__inner shell">
-    <a class="site-brand" href={link('')}>AW / VP</a>
+    <a class="site-brand" href={withBase('')}>AW / VP</a>
     <nav class="site-nav" aria-label="主导航" data-navigation data-open="false">
-      <a href={link('workflows/')}>工作流</a>
-      <a href={link('visuals/')}>视觉作品</a>
-      <a href={link('thoughts/')}>思考</a>
-      <a href={link('#about')}>关于</a>
+      <a href={withBase('workflows/')}>工作流</a>
+      <a href={withBase('visuals/')}>视觉作品</a>
+      <a href={withBase('thoughts/')}>思考</a>
+      <a href={withBase('/#about')}>关于</a>
     </nav>
-    <a class="contact-anchor" href={link('#contact')}>联系 / CONTACT</a>
+    <a class="contact-anchor" href={withBase('/#contact')}>联系 / CONTACT</a>
     <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" data-nav-toggle>菜单</button>
   </div>
 </header>

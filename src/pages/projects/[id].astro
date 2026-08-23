@@ -3,6 +3,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ProjectGallery from '../../components/ProjectGallery.astro';
 import DetailLayout from '../../layouts/DetailLayout.astro';
 import { filterPublished, sortByOrder } from '../../lib/content';
+import { withBase } from '../../lib/url';
 
 interface Props { entry: CollectionEntry<'projects'>; previous?: CollectionEntry<'projects'>; next?: CollectionEntry<'projects'>; }
 
@@ -13,13 +14,11 @@ export async function getStaticPaths() {
 
 const { entry, previous, next } = Astro.props;
 const { Content } = await render(entry);
-const base = import.meta.env.BASE_URL;
-const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 ---
 
-<DetailLayout title={entry.data.title} description={entry.data.summary} backHref={link('visuals/')} backLabel="返回视觉作品">
+<DetailLayout title={entry.data.title} description={entry.data.summary} backHref="visuals/" backLabel="返回视觉作品">
   <div slot="meta" class="detail-meta"><span>{entry.data.category}</span><span>{entry.data.year}</span><span>{entry.data.duration}</span></div>
-  <img class="project-cover" src={entry.data.cover.src} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />
+  <img class="project-cover" src={withBase(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />
   <dl class="project-facts">
     <div><dt>我的角色</dt><dd>{entry.data.role}</dd></div>
     <div><dt>使用工具</dt><dd>{entry.data.tools.join(' / ')}</dd></div>
@@ -27,7 +26,7 @@ const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
   <div class="project-story"><Content /></div>
   <ProjectGallery images={entry.data.gallery} />
   <nav slot="pagination" class="detail-pagination" aria-label="相邻项目">
-    {previous ? <a href={link(`projects/${previous.id}/`)}>← {previous.data.title}</a> : <span></span>}
-    {next && <a href={link(`projects/${next.id}/`)}>{next.data.title} →</a>}
+    {previous ? <a href={withBase(`projects/${previous.id}/`)}>← {previous.data.title}</a> : <span></span>}
+    {next && <a href={withBase(`projects/${next.id}/`)}>{next.data.title} →</a>}
   </nav>
 </DetailLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { withBase } from '../lib/url';
 
 interface Props { title: string; description: string; backHref: string; backLabel: string; }
 const { title, description, backHref, backLabel } = Astro.props;
@@ -7,7 +8,7 @@ const { title, description, backHref, backLabel } = Astro.props;
 
 <BaseLayout title={`${title} — AI WORKFLOW / VISUAL PRACTICE`} description={description}>
   <article class="detail shell" data-reveal>
-    <a class="detail__back" href={backHref}>← {backLabel}</a>
+    <a class="detail__back" href={withBase(backHref)}>← {backLabel}</a>
     <header>
       <slot name="meta" />
       <h1>{title}</h1>

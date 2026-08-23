@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL;
-const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
+import { withBase } from '../lib/url';
 ---
 
 <BaseLayout title="页面未找到 — AI WORKFLOW / VISUAL PRACTICE" description="这个页面不存在或已经移动。">
@@ -10,7 +9,7 @@ const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
     <h1>没有找到这个页面</h1>
     <p>它可能被移动、归档，或者还没有加入这套正在生长的系统。</p>
     <nav aria-label="返回网站">
-      <a href={link('')}>回到首页</a><a href={link('workflows/')}>查看工作流</a><a href={link('visuals/')}>查看视觉作品</a>
+      <a href={withBase('')}>回到首页</a><a href={withBase('workflows/')}>查看工作流</a><a href={withBase('visuals/')}>查看视觉作品</a>
     </nav>
   </section>
 </BaseLayout>

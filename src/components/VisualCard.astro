@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { withBase } from '../lib/url';
 
 interface Props { entry: CollectionEntry<'visuals'>; }
 const { entry } = Astro.props;
@@ -7,11 +8,11 @@ const { entry } = Astro.props;
 
 <figure class="visual-card" style={`--ratio:${entry.data.image.width}/${entry.data.image.height}`} data-reveal>
   <div class="visual-card__image">
-    <img src={entry.data.image.src} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
+    <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
   </div>
   <figcaption>
     <span>{entry.data.title}</span>
     <span>{entry.data.category} / {entry.data.year}</span>
-    {entry.data.projectId && <a href={`${import.meta.env.BASE_URL}projects/${entry.data.projectId}/`.replace(/\/+/g, '/')} aria-label={`查看项目：${entry.data.title}`}>项目详情 ↗</a>}
+    {entry.data.projectId && <a href={withBase(`projects/${entry.data.projectId}/`)} aria-label={`查看项目：${entry.data.title}`}>项目详情 ↗</a>}
   </figcaption>
 </figure>

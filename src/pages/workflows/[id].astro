@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import DetailLayout from '../../layouts/DetailLayout.astro';
 import { filterPublished, sortByOrder } from '../../lib/content';
+import { withBase } from '../../lib/url';
 
 interface Props {
   entry: CollectionEntry<'workflows'>;
@@ -25,20 +26,18 @@ export async function getStaticPaths() {
 
 const { entry, previous, next, version } = Astro.props;
 const { Content } = await render(entry);
-const base = import.meta.env.BASE_URL;
-const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 const statusLabel = { active: '每天使用', evolving: '持续优化', archived: '已归档' }[entry.data.status];
 ---
 
-<DetailLayout title={entry.data.title} description={entry.data.summary} backHref={link('workflows/')} backLabel="返回工作流档案">
+<DetailLayout title={entry.data.title} description={entry.data.summary} backHref="workflows/" backLabel="返回工作流档案">
   <div slot="meta" class="detail-meta">
     <span>{entry.data.year}</span><span>{statusLabel}</span><span>{entry.data.tools.join(' / ')}</span>
   </div>
-  <img class="detail-cover" src={entry.data.cover.src} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />
-  {version && <p class="version-link">由旧版本发展而来：<a href={link(`workflows/${version.id}/`)}>{version.data.title}</a></p>}
+  <img class="detail-cover" src={withBase(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />
+  {version && <p class="version-link">由旧版本发展而来：<a href={withBase(`workflows/${version.id}/`)}>{version.data.title}</a></p>}
   <Content />
   <nav slot="pagination" class="detail-pagination" aria-label="相邻工作流">
-    {previous ? <a href={link(`workflows/${previous.id}/`)}>← {previous.data.title}</a> : <span></span>}
-    {next && <a href={link(`workflows/${next.id}/`)}>{next.data.title} →</a>}
+    {previous ? <a href={withBase(`workflows/${previous.id}/`)}>← {previous.data.title}</a> : <span></span>}
+    {next && <a href={withBase(`workflows/${next.id}/`)}>{next.data.title} →</a>}
   </nav>
 </DetailLayout>

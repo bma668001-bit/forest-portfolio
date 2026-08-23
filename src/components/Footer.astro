@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { withBase } from '../lib/url';
 
 interface Props { profile: CollectionEntry<'profile'>['data']; }
 const { profile } = Astro.props;
@@ -15,8 +16,8 @@ const year = new Date().getFullYear();
       </div>
       <div class="site-footer__meta">
         <p>{profile.status}</p>
-        {profile.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}
-        {profile.wechatQr && <img src={profile.wechatQr} alt="微信联系二维码" width="180" height="180" loading="lazy" />}
+        {profile.email && <a href={withBase(`mailto:${profile.email}`)}>{profile.email}</a>}
+        {profile.wechatQr && <img src={withBase(profile.wechatQr)} alt="微信联系二维码" width="180" height="180" loading="lazy" />}
         {!profile.email && !profile.wechatQr && <p>联系方式将在正式素材阶段补充。</p>}
       </div>
     </div>

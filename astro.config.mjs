@@ -6,7 +6,7 @@ const isUserSite = repo.endsWith('.github.io');
 
 export default defineConfig({
   site: process.env.SITE_URL ?? 'http://localhost:4321',
-  base: process.env.GITHUB_ACTIONS === 'true' && !isUserSite ? `/${repo}` : '/',
+  base: process.env.GITHUB_ACTIONS === 'true' && !isUserSite ? `/${repo}/` : '/',
   integrations: [sitemap()],
   build: { assets: '_assets' },
 });

@@ -2,11 +2,10 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { filterPublished } from '../../lib/content';
+import { withBase } from '../../lib/url';
 
 const articles = filterPublished(await getCollection('articles')).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const notes = filterPublished(await getCollection('notes')).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-const base = import.meta.env.BASE_URL;
-const link = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(value);
 ---
 
@@ -22,7 +21,7 @@ const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric'
         <h2 id="articles-heading">文章</h2>
         <div class="article-index">
           {articles.map((entry, index) => (
-            <a href={link(`thoughts/${entry.id}/`)}>
+            <a href={withBase(`thoughts/${entry.id}/`)}>
               <span>{String(index + 1).padStart(2, '0')} / {date(entry.data.publishedAt)}</span>
               <h3>{entry.data.title}</h3>
               <p>{entry.data.summary}</p>
