@@ -14,9 +14,34 @@ export async function getStaticPaths() {
 const { entry, previous, next } = Astro.props;
 const { Content } = await render(entry);
 const published = new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }).format(entry.data.publishedAt);
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const articleImage = entry.data.cover
+  ? new URL(withBase(entry.data.cover.src), Astro.site).href
+  : undefined;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: entry.data.title,
+  description: entry.data.summary,
+  datePublished: entry.data.publishedAt.toISOString(),
+  url: canonical,
+  mainEntityOfPage: canonical,
+  inLanguage: 'zh-CN',
+  ...(articleImage ? { image: articleImage } : {}),
+};
 ---
 
-<DetailLayout title={entry.data.title} description={entry.data.summary} backHref="thoughts/" backLabel="返回思考与灵感">
+<DetailLayout
+  title={entry.data.title}
+  description={entry.data.summary}
+  backHref="thoughts/"
+  backLabel="返回思考与灵感"
+  image={entry.data.cover?.src}
+  imageAlt={entry.data.cover?.alt}
+  type="article"
+  publishedAt={entry.data.publishedAt}
+  structuredData={structuredData}
+>
   <div slot="meta" class="detail-meta"><span>ARTICLE</span><time datetime={entry.data.publishedAt.toISOString()}>{published}</time></div>
   {entry.data.cover && <img class="detail-cover" src={withBase(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />}
   <Content />

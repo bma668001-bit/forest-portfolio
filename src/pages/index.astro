@@ -10,9 +10,19 @@ const workflows = sortByOrder(filterPublished(await getCollection('workflows')))
 const visuals = sortByOrder(filterPublished(await getCollection('visuals'))).filter((entry) => entry.data.featured).slice(0, 6);
 const articles = filterPublished(await getCollection('articles')).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const notes = filterPublished(await getCollection('notes')).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()).slice(0, 3);
+const title = 'AI WORKFLOW / VISUAL PRACTICE';
+const description = '视觉设计与 AI 工作流实践者的个人作品与简历网站。';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: profileEntry.data.name,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  description,
+  inLanguage: 'zh-CN',
+};
 ---
 
-<BaseLayout title="AI WORKFLOW / VISUAL PRACTICE" description="视觉设计与 AI 工作流实践者的个人作品与简历网站。">
+<BaseLayout title={title} description={description} structuredData={structuredData}>
   <HeroField role={profileEntry.data.role} status={profileEntry.data.status} />
   <HomeSections profile={profileEntry.data} workflows={workflows} visuals={visuals} articles={articles} notes={notes} />
 </BaseLayout>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">AI WORKFLOW / VISUAL PRACTICE</title>
+  <desc id="description">暖米色编辑式画面，以咖啡色与陶土色呈现 AW、VP 字样和细线工作流节点。</desc>
+  <defs>
+    <filter id="paper-noise" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" seed="17" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.08" />
+      </feComponentTransfer>
+    </filter>
+    <clipPath id="frame">
+      <rect x="34" y="34" width="1132" height="562" rx="2" />
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="630" fill="#ede6d8" />
+  <rect width="1200" height="630" fill="#241b16" filter="url(#paper-noise)" opacity="0.34" />
+
+  <g clip-path="url(#frame)">
+    <circle cx="859" cy="293" r="212" fill="none" stroke="#a85f3b" stroke-opacity="0.22" stroke-width="1" />
+    <circle cx="859" cy="293" r="153" fill="none" stroke="#c6a36a" stroke-opacity="0.34" stroke-width="1" />
+    <circle cx="859" cy="293" r="94" fill="#c6a36a" fill-opacity="0.08" stroke="#241b16" stroke-opacity="0.16" stroke-width="1" />
+
+    <path d="M70 98H1130M70 522H1130M594 70V560" fill="none" stroke="#241b16" stroke-opacity="0.26" stroke-width="1" />
+    <path d="M650 173C742 145 785 196 854 219C938 247 1015 188 1129 203" fill="none" stroke="#241b16" stroke-opacity="0.42" stroke-width="1" />
+    <path d="M663 415C751 368 803 375 869 400C952 432 1016 400 1127 349" fill="none" stroke="#a85f3b" stroke-opacity="0.56" stroke-width="1.4" />
+
+    <g fill="#ede6d8" stroke="#241b16" stroke-width="1.2">
+      <circle cx="674" cy="168" r="7" />
+      <circle cx="853" cy="219" r="7" />
+      <circle cx="996" cy="208" r="7" />
+      <circle cx="699" cy="398" r="7" />
+      <circle cx="870" cy="400" r="7" />
+      <circle cx="1067" cy="377" r="7" />
+    </g>
+    <g fill="#a85f3b">
+      <circle cx="674" cy="168" r="2.8" />
+      <circle cx="853" cy="219" r="2.8" />
+      <circle cx="996" cy="208" r="2.8" />
+      <circle cx="699" cy="398" r="2.8" />
+      <circle cx="870" cy="400" r="2.8" />
+      <circle cx="1067" cy="377" r="2.8" />
+    </g>
+
+    <text x="68" y="82" fill="#241b16" font-family="Arial, 'Microsoft YaHei UI', sans-serif" font-size="15" font-weight="700" letter-spacing="4">AI WORKFLOW</text>
+    <text x="1132" y="82" fill="#241b16" font-family="Arial, 'Microsoft YaHei UI', sans-serif" font-size="15" font-weight="700" letter-spacing="4" text-anchor="end">VISUAL PRACTICE</text>
+
+    <text x="61" y="410" fill="#241b16" font-family="Georgia, 'Times New Roman', serif" font-size="296" font-weight="700" letter-spacing="-27">AW</text>
+    <text x="629" y="410" fill="#a85f3b" font-family="Georgia, 'Times New Roman', serif" font-size="282" font-style="italic" font-weight="400" letter-spacing="-24">VP</text>
+
+    <g fill="#241b16" font-family="Arial, 'Microsoft YaHei UI', sans-serif" font-size="10" font-weight="700" letter-spacing="2.2">
+      <text x="651" y="149">INPUT</text>
+      <text x="830" y="200">JUDGMENT</text>
+      <text x="973" y="189">SYSTEM</text>
+      <text x="676" y="431">FORM</text>
+      <text x="846" y="433">RHYTHM</text>
+      <text x="1042" y="410">OUTPUT</text>
+    </g>
+  </g>
+
+  <rect x="34.5" y="34.5" width="1131" height="561" rx="2" fill="none" stroke="#241b16" stroke-opacity="0.45" />
+  <rect x="68" y="542" width="1064" height="1" fill="#241b16" fill-opacity="0.28" />
+  <text x="68" y="568" fill="#241b16" font-family="Arial, 'Microsoft YaHei UI', sans-serif" font-size="12" letter-spacing="3.4">AW / VP</text>
+  <text x="1132" y="568" fill="#241b16" font-family="Arial, 'Microsoft YaHei UI', sans-serif" font-size="12" letter-spacing="2.4" text-anchor="end">CONTENT · IMAGE · SYSTEM</text>
+</svg>

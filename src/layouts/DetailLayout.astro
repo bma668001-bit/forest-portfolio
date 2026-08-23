@@ -2,11 +2,43 @@
 import BaseLayout from './BaseLayout.astro';
 import { withBase } from '../lib/url';
 
-interface Props { title: string; description: string; backHref: string; backLabel: string; }
-const { title, description, backHref, backLabel } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  backHref: string;
+  backLabel: string;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article';
+  publishedAt?: Date | string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  backHref,
+  backLabel,
+  image,
+  imageAlt,
+  type,
+  publishedAt,
+  noindex,
+  structuredData,
+} = Astro.props;
 ---
 
-<BaseLayout title={`${title} — AI WORKFLOW / VISUAL PRACTICE`} description={description}>
+<BaseLayout
+  title={`${title} — AI WORKFLOW / VISUAL PRACTICE`}
+  description={description}
+  image={image}
+  imageAlt={imageAlt}
+  type={type}
+  publishedAt={publishedAt}
+  noindex={noindex}
+  structuredData={structuredData}
+>
   <article class="detail shell" data-reveal>
     <a class="detail__back" href={withBase(backHref)}>← {backLabel}</a>
     <header>

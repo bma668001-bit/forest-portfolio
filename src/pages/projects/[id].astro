@@ -14,9 +14,36 @@ export async function getStaticPaths() {
 
 const { entry, previous, next } = Astro.props;
 const { Content } = await render(entry);
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const projectImage = new URL(withBase(entry.data.cover.src), Astro.site).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: entry.data.title,
+  description: entry.data.summary,
+  url: canonical,
+  dateCreated: String(entry.data.year),
+  genre: entry.data.category,
+  keywords: entry.data.tools,
+  image: {
+    '@type': 'ImageObject',
+    contentUrl: projectImage,
+    caption: entry.data.cover.alt,
+    width: entry.data.cover.width,
+    height: entry.data.cover.height,
+  },
+};
 ---
 
-<DetailLayout title={entry.data.title} description={entry.data.summary} backHref="visuals/" backLabel="返回视觉作品">
+<DetailLayout
+  title={entry.data.title}
+  description={entry.data.summary}
+  backHref="visuals/"
+  backLabel="返回视觉作品"
+  image={entry.data.cover.src}
+  imageAlt={entry.data.cover.alt}
+  structuredData={structuredData}
+>
   <div slot="meta" class="detail-meta"><span>{entry.data.category}</span><span>{entry.data.year}</span><span>{entry.data.duration}</span></div>
   <img class="project-cover" src={withBase(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />
   <dl class="project-facts">
