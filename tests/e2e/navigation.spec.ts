@@ -26,3 +26,15 @@ test('workflow archive exposes status and detail routes', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1 })).toContainText('公众号快速创作');
   await expect(page.getByRole('link', { name: '返回工作流档案' })).toBeVisible();
 });
+
+test('thoughts archive separates articles and short notes', async ({ page }) => {
+  await page.goto('/thoughts/');
+  await expect(page.getByRole('heading', { name: '文章' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '短灵感' })).toBeVisible();
+});
+
+test('unknown path renders a useful 404', async ({ page }) => {
+  await page.goto('/not-a-real-page/');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('没有找到这个页面');
+  await expect(page.getByRole('link', { name: '回到首页' })).toBeVisible();
+});
