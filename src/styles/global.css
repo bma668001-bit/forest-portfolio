@@ -41,6 +41,7 @@ button { color: inherit; }
 .site-nav { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 2.5rem); }
 .site-nav a { text-decoration: none; font-size: .78rem; letter-spacing: .06em; }
 .site-nav a:hover { color: var(--clay); }
+.site-nav a[aria-current='page'] { text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: .45em; }
 .contact-anchor { justify-self: end; font-size: .76rem; text-decoration: none; border-bottom: 1px solid; }
 .nav-toggle { display: none; border: 0; background: transparent; padding: .6rem; cursor: pointer; }
 

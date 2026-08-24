@@ -104,6 +104,31 @@ test('archive and detail routes mark exactly one current portfolio section', asy
   }
 });
 
+test('current navigation item uses a restrained underline on desktop and mobile', async ({ page }) => {
+  for (const viewport of [
+    { width: 1280, height: 900 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto('/workflows/');
+    if (viewport.width <= 960) await page.getByRole('button', { name: '打开导航' }).click();
+
+    const currentLink = page.locator('#primary-navigation a[aria-current="page"]');
+    await expect(currentLink).toBeVisible();
+    const decoration = await currentLink.evaluate((link) => {
+      const style = getComputedStyle(link);
+      return {
+        line: style.textDecorationLine,
+        thickness: Number.parseFloat(style.textDecorationThickness),
+      };
+    });
+
+    expect(decoration.line).toContain('underline');
+    expect(decoration.thickness).toBeGreaterThan(0);
+    expect(decoration.thickness).toBeLessThanOrEqual(2);
+  }
+});
+
 test('workflow archive exposes status and detail routes', async ({ page }) => {
   await page.goto('/workflows/');
   await expect(page.getByRole('heading', { level: 1, name: '工作流档案' })).toBeVisible();
