@@ -10,7 +10,7 @@ test('homepage exposes complete default sharing metadata', async ({ page }) => {
 
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /social-preview\.png$/);
   await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
-  await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute('content', 'AI WORKFLOW / VISUAL PRACTICE');
+  await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute('content', '森林');
   await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', 'zh_CN');
   expect(await structuredDataTypes(page)).toContain('WebSite');
 });

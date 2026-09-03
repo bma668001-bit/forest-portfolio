@@ -10,8 +10,8 @@ const workflows = sortByOrder(filterPublished(await getCollection('workflows')))
 const visuals = sortByOrder(filterPublished(await getCollection('visuals'))).filter((entry) => entry.data.featured).slice(0, 6);
 const articles = filterPublished(await getCollection('articles')).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const notes = filterPublished(await getCollection('notes')).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()).slice(0, 3);
-const title = 'AI WORKFLOW / VISUAL PRACTICE';
-const description = '视觉设计与 AI 工作流实践者的个人作品与简历网站。';
+const title = '森林｜视觉设计与 AI 工作流实践';
+const description = '森林的个人作品网站：5 年视觉设计经验，以及 AI 生图、内容生产和个人工作流实践。';
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',

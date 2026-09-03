@@ -1,7 +1,7 @@
-name: AI WORKFLOW / VISUAL PRACTICE
-role: 视觉设计与 AI 工作流实践者
-status: 正在把 AI 变成每天可用的创作系统
-bio: 从纯 PS 视觉设计出发，现在专注于把内容创作、批量生产与个人工作台连接成真正可运行的工作流。
+name: 森林
+role: 视觉设计师 × AI 工作流实践者
+status: 用设计判断连接视觉、内容与可运行的工作流。
+bio: 我是森林，有 5 年视觉设计经验。过去的工作主要在 Photoshop 里完成：海报、电商主图、自媒体封面和活动视觉。现在，我把同样的设计判断带进 AI 生图和内容工作流，仍然关心一件事：最后的东西能不能真正拿来用。
 email: ""
 wechatQr: ""
 location: ""
@@ -10,11 +10,11 @@ resumeUrl: ""
 socialLinks: []
 tools:
   - Photoshop
-  - AI 图像工具
-  - 自动化工作流
-  - 内容生产系统
+  - AI 生图
+  - 内容工作流
+  - AI 编程协作
 experience:
   - period: AI 前
-    label: 海报、电商、自媒体与活动视觉设计
+    label: 用 Photoshop 完成海报、电商、自媒体与活动视觉
   - period: 现在
-    label: AI 内容工作流与视觉应用实践
+    label: 把设计判断放进 AI 生图、内容生产与个人工作流

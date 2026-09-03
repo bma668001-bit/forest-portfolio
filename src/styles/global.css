@@ -76,6 +76,17 @@ button { color: inherit; }
 .hero__actions a:hover { color: var(--clay); border-color: var(--clay); }
 .hero__foot { padding-block: 1rem; border-top: 1px solid var(--line); }
 
+.capability-section { padding-block: var(--section-space); }
+.capability-section__heading { display: grid; grid-template-columns: .7fr 1.3fr; gap: 2rem; align-items: end; margin-bottom: clamp(2.5rem, 6vw, 6rem); }
+.capability-section__heading h2 { margin: 0; font: 600 clamp(3rem, 7vw, 7.5rem)/.88 var(--display); letter-spacing: -.055em; }
+.capability-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.capability-list li { display: grid; grid-template-columns: 3rem 1fr; gap: .75rem 1.25rem; padding: 1.4rem 1.5rem 2.2rem 0; border-bottom: 1px solid var(--line); }
+.capability-list li:nth-child(odd) { border-right: 1px solid var(--line); }
+.capability-list li:nth-child(even) { padding-left: 1.5rem; }
+.capability-list span { padding-top: .3rem; font-size: .65rem; letter-spacing: .08em; }
+.capability-list h3 { margin: 0; font: 500 clamp(1.5rem, 2.6vw, 2.6rem)/1 var(--display); letter-spacing: -.035em; }
+.capability-list p { grid-column: 2; max-width: 29rem; margin: .35rem 0 0; color: color-mix(in srgb, var(--ink) 72%, transparent); }
+
 .home-section { padding-block: var(--section-space); }
 .workflow-list { border-bottom: 1px solid var(--line); }
 .workflow-row { border-top: 1px solid var(--line); }
@@ -225,6 +236,7 @@ span.demo-badge { display: inline-flex; align-items: center; width: max-content;
   .workflow-row__status { grid-column: 2; }
   .workflow-row__arrow { grid-column: 3; grid-row: 1; }
   .legacy-band__inner { grid-template-columns: 1fr; }
+  .capability-section__heading { grid-template-columns: 1fr; }
   .thought-preview, .about-section__grid { grid-template-columns: 1fr; }
   .gallery-item, .gallery-item:nth-child(even) { grid-column: span 6; margin-top: 0; }
   .thoughts-block { grid-template-columns: 1fr; }
@@ -243,6 +255,8 @@ span.demo-badge { display: inline-flex; align-items: center; width: max-content;
   .hero__role { margin-top: 1.25rem; }
   .hero__actions { margin-top: .9rem; gap: .65rem 1.15rem; }
   .hero__foot span:last-child { display: none; }
+  .capability-list { grid-template-columns: 1fr; }
+  .capability-list li, .capability-list li:nth-child(even) { padding-inline: 0; border-right: 0; }
   .site-footer h2 { font-size: clamp(2.8rem, 15vw, 5rem); }
   .visual-feature-grid { grid-template-columns: 1fr; }
   .visual-card:nth-child(even) { margin-top: 2rem; }

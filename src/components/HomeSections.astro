@@ -20,25 +20,47 @@ const availability = profile.availability.trim();
 const resumeUrl = profile.resumeUrl.trim();
 const socialLinks = profile.socialLinks.filter(({ label, url }) => label.trim() && url.trim());
 const hasContact = Boolean(profile.email.trim() || profile.wechatQr.trim());
+const capabilities = [
+  { title: '视觉设计', text: '5 年平面设计经验，能独立处理素材、合成、排版和最终输出。' },
+  { title: 'AI 生图', text: '先拆清风格、人物、镜头和使用场景，再筛选和修正结果。' },
+  { title: '内容工作流', text: '把选题、改写、配图、配音和素材整理拆成可以重复使用的步骤。' },
+  { title: '个人工作台', text: '从每天真正会做的任务出发，和 AI 编程工具一起跑通够用的小闭环。' },
+];
 ---
+
+<section class="capability-section shell" aria-labelledby="capability-title" data-reveal>
+  <div class="capability-section__heading">
+    <p class="eyebrow">01 / CAPABILITIES</p>
+    <h2 id="capability-title">我擅长什么</h2>
+  </div>
+  <ol class="capability-list">
+    {capabilities.map((item, index) => (
+      <li>
+        <span>{String(index + 1).padStart(2, '0')}</span>
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+      </li>
+    ))}
+  </ol>
+</section>
 
 {workflows.length > 0 && (
   <section class="home-section shell" data-reveal>
-    <SectionHeading eyebrow="01 / SYSTEMS" title="工作流精选" href={withBase('workflows/')} linkLabel="全部工作流" />
+    <SectionHeading eyebrow="02 / SYSTEMS" title="工作流精选" href={withBase('workflows/')} linkLabel="全部工作流" />
     <div class="workflow-list">{workflows.map((entry, index) => <WorkflowCard entry={entry} index={index} />)}</div>
   </section>
 )}
 
 {visuals.length > 0 && (
   <section class="home-section shell" data-reveal>
-    <SectionHeading eyebrow="02 / VISUALS" title="视觉实践" href={withBase('visuals/')} linkLabel="全部作品" />
+    <SectionHeading eyebrow="03 / VISUALS" title="视觉实践" href={withBase('visuals/')} linkLabel="全部作品" />
     <div class="visual-feature-grid">{visuals.map((entry) => <VisualCard entry={entry} />)}</div>
   </section>
 )}
 
 <section class="legacy-band" aria-label="传统设计基础" data-reveal>
   <div class="shell legacy-band__inner">
-    <p class="eyebrow">03 / FOUNDATION</p>
+    <p class="eyebrow">04 / FOUNDATION</p>
     <p class="legacy-band__word">PS<br />BEFORE AI</p>
     <div class="legacy-band__copy">
       <p>海报、电商主图、自媒体封面、活动排版与节日热点图。</p>
@@ -49,7 +71,7 @@ const hasContact = Boolean(profile.email.trim() || profile.wechatQr.trim());
 
 {(articles.length > 0 || notes.length > 0) && (
   <section class="home-section shell" data-reveal>
-    <SectionHeading eyebrow="04 / NOTES" title="最近在想" href={withBase('thoughts/')} linkLabel="全部思考" />
+    <SectionHeading eyebrow="05 / NOTES" title="最近在想" href={withBase('thoughts/')} linkLabel="全部思考" />
     <div class="thought-preview">
       {articles[0] && (
         <a class="article-lead" href={withBase(`thoughts/${articles[0].id}/`)}>
@@ -63,7 +85,7 @@ const hasContact = Boolean(profile.email.trim() || profile.wechatQr.trim());
 
 <section class="about-section" id="about" aria-labelledby="about-title" data-reveal>
   <div class="shell about-section__grid">
-    <div><p class="eyebrow">05 / PROFILE</p><h2 id="about-title">关于与联系</h2></div>
+    <div><p class="eyebrow">06 / PROFILE</p><h2 id="about-title">关于森林</h2></div>
     <div class="about-section__copy">
       <p class="about-section__lead">{profile.bio}</p><p>{profile.status}</p>
       <ol class="experience-list" aria-label="经历">

@@ -8,11 +8,25 @@ test('homepage exposes portfolio paths and the runtime year', async ({ page }) =
   await expect(page.locator('[data-portfolio-year]')).toHaveText(String(new Date().getFullYear()));
 });
 
+test('homepage introduces Forest through verified identity and capabilities', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('森林');
+  await expect(page.getByText('5 年视觉设计经验', { exact: false })).toBeVisible();
+
+  const capabilities = page.locator('.capability-list');
+  for (const label of ['视觉设计', 'AI 生图', '内容工作流', '个人工作台']) {
+    await expect(capabilities.getByRole('heading', { name: label, exact: true })).toBeVisible();
+  }
+
+  await expect(page.getByText(/求职|入职|自由职业/)).toHaveCount(0);
+});
+
 test('homepage presents the real experience narrative without invented profile details', async ({ page }) => {
   await page.goto('/');
 
-  await expect(page.getByText('海报、电商、自媒体与活动视觉设计', { exact: true })).toBeVisible();
-  await expect(page.getByText('AI 内容工作流与视觉应用实践', { exact: true })).toBeVisible();
+  await expect(page.getByText('用 Photoshop 完成海报、电商、自媒体与活动视觉', { exact: true })).toBeVisible();
+  await expect(page.getByText('把设计判断放进 AI 生图、内容生产与个人工作流', { exact: true })).toBeVisible();
   await expect(page.locator('[data-profile-location]')).toHaveCount(0);
   await expect(page.locator('[data-profile-availability]')).toHaveCount(0);
   await expect(page.locator('[data-profile-resume]')).toHaveCount(0);

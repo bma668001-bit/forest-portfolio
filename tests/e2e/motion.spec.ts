@@ -2,10 +2,11 @@ import { expect, test } from '@playwright/test';
 
 test('homepage communicates the portfolio focus', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('AI WORKFLOW');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('森林');
+  await expect(page.getByRole('heading', { name: '我擅长什么' })).toBeVisible();
   await expect(page.getByRole('heading', { name: '工作流精选' })).toBeVisible();
   await expect(page.getByRole('heading', { name: '视觉实践' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: '关于与联系' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '关于森林' })).toBeVisible();
 });
 
 test('reduced motion keeps the hero static and readable', async ({ page }) => {
