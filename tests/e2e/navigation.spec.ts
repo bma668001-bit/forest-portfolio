@@ -146,6 +146,10 @@ test('thoughts archive separates articles and short notes', async ({ page }) => 
   await page.goto('/thoughts/');
   await expect(page.getByRole('heading', { name: '文章' })).toBeVisible();
   await expect(page.getByRole('heading', { name: '短灵感' })).toBeVisible();
+  for (const text of ['进入每天重复的工作流程', '能生成，不等于能使用', '先跑通真实的小闭环']) {
+    await expect(page.getByText(text, { exact: false }).first()).toBeVisible();
+  }
+  await expect(page.getByText('结构示例', { exact: true })).toHaveCount(0);
 });
 
 test('unknown path renders a useful 404', async ({ page }) => {

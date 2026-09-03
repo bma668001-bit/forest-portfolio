@@ -19,7 +19,7 @@ test('article exposes article metadata and its published time', async ({ page })
   await page.goto('/thoughts/from-design-to-workflow/');
 
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'article');
-  await expect(page.locator('meta[property="article:published_time"]')).toHaveAttribute('content', '2026-08-23T00:00:00.000Z');
+  await expect(page.locator('meta[property="article:published_time"]')).toHaveAttribute('content', '2026-09-03T00:00:00.000Z');
   expect(await structuredDataTypes(page)).toContain('Article');
 });
 

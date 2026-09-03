@@ -39,8 +39,6 @@ test('demo content carries one consistent structure label across portfolio surfa
   const routes = [
     '/',
     '/visuals/',
-    '/thoughts/',
-    '/thoughts/from-design-to-workflow/',
   ];
 
   for (const route of routes) {
