@@ -132,8 +132,13 @@ test('current navigation item uses a restrained underline on desktop and mobile'
 test('workflow archive exposes status and detail routes', async ({ page }) => {
   await page.goto('/workflows/');
   await expect(page.getByRole('heading', { level: 1, name: '工作流档案' })).toBeVisible();
+  await expect(page.locator('.workflow-row')).toHaveCount(5);
+  await expect(page.getByText('个人工作台设计', { exact: true })).toBeVisible();
   await page.getByRole('link', { name: /公众号快速创作/ }).click();
   await expect(page.getByRole('heading', { level: 1 })).toContainText('公众号快速创作');
+  for (const heading of ['为什么要做', '我的处理方式', '实际变化', '还在改进']) {
+    await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible();
+  }
   await expect(page.getByRole('link', { name: '返回工作流档案' })).toBeVisible();
 });
 

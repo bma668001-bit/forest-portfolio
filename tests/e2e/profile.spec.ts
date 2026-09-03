@@ -38,8 +38,6 @@ test('homepage presents the real experience narrative without invented profile d
 test('demo content carries one consistent structure label across portfolio surfaces', async ({ page }) => {
   const routes = [
     '/',
-    '/workflows/',
-    '/workflows/wechat-writing/',
     '/visuals/',
     '/projects/editorial-system/',
     '/thoughts/',
@@ -52,11 +50,12 @@ test('demo content carries one consistent structure label across portfolio surfa
   }
 });
 
-test('demo workflow links expose their demo status in the accessible name', async ({ page }) => {
+test('real workflow links do not carry demo status', async ({ page }) => {
   await page.goto('/workflows/');
 
   await expect(page.getByRole('link', {
-    name: '查看工作流：公众号快速创作（演示内容）',
+    name: '查看工作流：公众号快速创作',
     exact: true,
   })).toBeVisible();
+  await expect(page.getByText('结构示例', { exact: true })).toHaveCount(0);
 });
