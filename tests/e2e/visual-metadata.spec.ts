@@ -61,14 +61,16 @@ test('shows demo visuals linked to the current workflow', async ({ page }) => {
   await expect(related).toContainText('编辑式海报实验');
   await expect(related).toContainText('自媒体封面实验');
   await expect(related.locator('[data-demo-badge]')).toHaveText(['结构示例', '结构示例']);
-  await expect(related.getByRole('link', { name: '查看“编辑式海报实验”关联的项目' })).toBeVisible();
+  await expect(related.getByRole('link', { name: /关联的项目/ })).toHaveCount(0);
 });
 
 test('shows optional captions for project gallery images', async ({ page }) => {
-  await page.goto('/projects/editorial-system/');
+  await page.goto('/projects/book-video-workbench/');
 
   const captions = page.locator('.project-gallery figcaption');
   await expect(captions).toHaveCount(2);
-  await expect(captions.nth(0)).toHaveText('横版演示画面：暖米色底上以节点、曲线和大字构成从左向右展开的工作流结构。');
-  await expect(captions.nth(1)).toHaveText('竖版演示画面：深咖啡底上以三组轨道、圆点和上下文字构成中心聚拢的结构。');
+  await expect(captions).toHaveText([
+    '流程结构示意图，真实工作台截图整理后替换。',
+    '流程结构示意图，真实工作台截图整理后替换。',
+  ]);
 });

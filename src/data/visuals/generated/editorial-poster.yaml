@@ -10,7 +10,6 @@ tools:
   - SVG
   - AI 辅助编排
 featured: true
-projectId: editorial-system
 workflowId: wechat-writing
 image:
   src: /images/demo/workflow-field.svg

@@ -24,7 +24,7 @@ test('article exposes article metadata and its published time', async ({ page })
 });
 
 test('project exposes CreativeWork structured data', async ({ page }) => {
-  await page.goto('/projects/editorial-system/');
+  await page.goto('/projects/book-video-workbench/');
 
   expect(await structuredDataTypes(page)).toContain('CreativeWork');
 });

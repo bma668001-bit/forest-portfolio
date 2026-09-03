@@ -5,7 +5,7 @@ const routes = [
   '/workflows/',
   '/workflows/wechat-writing/',
   '/visuals/',
-  '/projects/editorial-system/',
+  '/projects/book-video-workbench/',
   '/thoughts/',
   '/thoughts/from-design-to-workflow/',
 ];
