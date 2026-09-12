@@ -1,5 +1,5 @@
 ---
-import { withBase } from '../lib/url';
+import ResponsiveImage from './ResponsiveImage.astro';
 
 interface CaseImage {
   src: string;
@@ -23,13 +23,7 @@ const { images } = Astro.props;
     {images.map((image, index) => (
       <figure class="workflow-case-card">
         <span>{String(index + 1).padStart(2, '0')}</span>
-        <img
-          src={withBase(image.src)}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          loading={index === 0 ? 'eager' : 'lazy'}
-        />
+        <ResponsiveImage {...image} sizes="(max-width: 767px) 92vw, 520px" loading={index === 0 ? 'eager' : 'lazy'} />
         {image.caption && <figcaption>{image.caption}</figcaption>}
       </figure>
     ))}

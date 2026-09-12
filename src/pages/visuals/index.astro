@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import DemoBadge from '../../components/DemoBadge.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import TraditionalVisualGrid from '../../components/TraditionalVisualGrid.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { filterPublished, sortByOrder } from '../../lib/content';
 import { withBase } from '../../lib/url';
@@ -57,7 +58,7 @@ const initialVisibleCount = Math.min(8, visuals.length);
             data-era={entry.data.era}
             data-tools={entry.data.tools.join(' / ')}
           >
-            <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
+            <ResponsiveImage {...entry.data.image} sizes="(max-width: 767px) 92vw, 45vw" />
           </button>
           <figcaption>
             <span>{entry.data.title} <DemoBadge demo={entry.data.demo} /></span><span>{entry.data.category} / {entry.data.year}</span>

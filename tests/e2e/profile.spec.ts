@@ -52,6 +52,14 @@ test('homepage exposes Forest’s WeChat contact without overflowing on mobile',
   expect(geometry.pageWidth).toBeLessThanOrEqual(geometry.viewportWidth);
 });
 
+test('serves responsive candidates for the portrait', async ({ page }) => {
+  await page.goto('/');
+
+  const portrait = page.locator('.about-section__portrait img');
+  await expect(portrait).toHaveAttribute('srcset', /forest-portrait-640\.webp 640w/);
+  await expect(portrait).toHaveAttribute('sizes', /\(max-width: 767px\) 92vw/);
+});
+
 test('published portfolio surfaces no longer show placeholder badges', async ({ page }) => {
   const routes = [
     '/',

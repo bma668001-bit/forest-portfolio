@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import DemoBadge from '../../components/DemoBadge.astro';
 import ProjectGallery from '../../components/ProjectGallery.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import DetailLayout from '../../layouts/DetailLayout.astro';
 import { filterPublished, sortByOrder } from '../../lib/content';
 import { withBase } from '../../lib/url';
@@ -46,7 +47,7 @@ const structuredData = {
   structuredData={structuredData}
 >
   <div slot="meta" class="detail-meta"><span>{entry.data.category}</span><span>{entry.data.year}</span><span>{entry.data.duration}</span><DemoBadge demo={entry.data.demo} /></div>
-  <img class="project-cover" src={withBase(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />
+  <ResponsiveImage {...entry.data.cover} class="project-cover" sizes="(max-width: 767px) 92vw, 900px" loading="eager" />
   <dl class="project-facts">
     <div><dt>我的角色</dt><dd>{entry.data.role}</dd></div>
     <div><dt>使用工具</dt><dd>{entry.data.tools.join(' / ')}</dd></div>

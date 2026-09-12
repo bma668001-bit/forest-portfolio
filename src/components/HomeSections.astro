@@ -4,6 +4,7 @@ import DemoBadge from './DemoBadge.astro';
 import SectionHeading from './SectionHeading.astro';
 import VisualCard from './VisualCard.astro';
 import TraditionalVisualGrid from './TraditionalVisualGrid.astro';
+import ResponsiveImage from './ResponsiveImage.astro';
 import WorkflowCard from './WorkflowCard.astro';
 import { withBase } from '../lib/url';
 
@@ -40,7 +41,6 @@ const fieldworkImages = {
     ['learning-07.webp', 1086, 1448], ['learning-08.webp', 1086, 1448], ['learning-09.webp', 1448, 1086],
   ],
 } as const;
-const fieldworkSrc = (name: string) => withBase(`images/fieldwork/${name}`);
 ---
 
 {workflows.length > 0 && (
@@ -67,12 +67,12 @@ const fieldworkSrc = (name: string) => withBase(`images/fieldwork/${name}`);
         <li>配合主讲老师进行现场答疑</li>
       </ul>
       <div class="fieldwork-gallery">
-        {fieldworkImages.training.slice(0, 3).map(([src, width, height], index) => <img src={fieldworkSrc(src)} alt={`AI 培训现场记录 ${index + 1}`} width={width} height={height} loading="lazy" />)}
+        {fieldworkImages.training.slice(0, 3).map(([src, width, height], index) => <ResponsiveImage src={`/images/fieldwork/${src}`} alt={`AI 培训现场记录 ${index + 1}`} width={width} height={height} sizes="(max-width: 767px) 92vw, 45vw" />)}
       </div>
       <details class="fieldwork-more">
         <summary>查看其余现场记录</summary>
         <div class="fieldwork-gallery">
-          {fieldworkImages.training.slice(3).map(([src, width, height], index) => <img src={fieldworkSrc(src)} alt={`AI 培训现场记录 ${index + 4}`} width={width} height={height} loading="lazy" />)}
+          {fieldworkImages.training.slice(3).map(([src, width, height], index) => <ResponsiveImage src={`/images/fieldwork/${src}`} alt={`AI 培训现场记录 ${index + 4}`} width={width} height={height} sizes="(max-width: 767px) 92vw, 45vw" />)}
         </div>
       </details>
     </article>
@@ -87,12 +87,12 @@ const fieldworkSrc = (name: string) => withBase(`images/fieldwork/${name}`);
         <li>把交流转化为可复用的判断</li>
       </ul>
       <div class="fieldwork-gallery">
-        {fieldworkImages.learning.slice(0, 3).map(([src, width, height], index) => <img src={fieldworkSrc(src)} alt={`AI 线下交流学习记录 ${index + 1}`} width={width} height={height} loading="lazy" />)}
+        {fieldworkImages.learning.slice(0, 3).map(([src, width, height], index) => <ResponsiveImage src={`/images/fieldwork/${src}`} alt={`AI 线下交流学习记录 ${index + 1}`} width={width} height={height} sizes="(max-width: 767px) 92vw, 45vw" />)}
       </div>
       <details class="fieldwork-more">
         <summary>查看其余交流记录</summary>
         <div class="fieldwork-gallery">
-          {fieldworkImages.learning.slice(3).map(([src, width, height], index) => <img src={fieldworkSrc(src)} alt={`AI 线下交流学习记录 ${index + 4}`} width={width} height={height} loading="lazy" />)}
+          {fieldworkImages.learning.slice(3).map(([src, width, height], index) => <ResponsiveImage src={`/images/fieldwork/${src}`} alt={`AI 线下交流学习记录 ${index + 4}`} width={width} height={height} sizes="(max-width: 767px) 92vw, 45vw" />)}
         </div>
       </details>
     </article>
@@ -156,7 +156,7 @@ const fieldworkSrc = (name: string) => withBase(`images/fieldwork/${name}`);
       <h2 id="about-title">关于森林</h2>
       {profile.portrait && (
         <figure class="about-section__portrait">
-          <img src={withBase(profile.portrait.src)} alt={profile.portrait.alt} width={profile.portrait.width} height={profile.portrait.height} loading="lazy" />
+          <ResponsiveImage {...profile.portrait} sizes="(max-width: 767px) 92vw, 440px" />
           <figcaption>森林 / 视觉设计与 AI 工作流实践</figcaption>
         </figure>
       )}

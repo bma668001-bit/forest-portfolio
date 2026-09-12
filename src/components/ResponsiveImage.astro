@@ -1,0 +1,37 @@
+---
+import { responsiveImageSources } from '../lib/responsive-image';
+import { withBase } from '../lib/url';
+
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  loading?: 'eager' | 'lazy';
+  sizes?: string;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  loading = 'lazy',
+  sizes = '(max-width: 767px) 92vw, (max-width: 1200px) 48vw, 800px',
+  class: className,
+} = Astro.props;
+const candidates = responsiveImageSources(src, import.meta.env.BASE_URL);
+---
+
+<img
+  class={className}
+  src={candidates?.src ?? withBase(src)}
+  srcset={candidates?.srcset}
+  sizes={candidates ? sizes : undefined}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={loading}
+  decoding="async"
+/>

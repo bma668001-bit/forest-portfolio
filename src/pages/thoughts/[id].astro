@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import DemoBadge from '../../components/DemoBadge.astro';
 import DetailLayout from '../../layouts/DetailLayout.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import { filterPublished } from '../../lib/content';
 import { withBase } from '../../lib/url';
 
@@ -44,7 +45,7 @@ const structuredData = {
   structuredData={structuredData}
 >
   <div slot="meta" class="detail-meta"><span>ARTICLE</span><time datetime={entry.data.publishedAt.toISOString()}>{published}</time><DemoBadge demo={entry.data.demo} /></div>
-  {entry.data.cover && <img class="detail-cover" src={withBase(entry.data.cover.src)} alt={entry.data.cover.alt} width={entry.data.cover.width} height={entry.data.cover.height} />}
+  {entry.data.cover && <ResponsiveImage {...entry.data.cover} class="detail-cover" sizes="(max-width: 767px) 92vw, 900px" loading="eager" />}
   <Content />
   <nav slot="pagination" class="detail-pagination" aria-label="相邻文章">
     {previous ? <a href={withBase(`thoughts/${previous.id}/`)}>← {previous.data.title}</a> : <span></span>}

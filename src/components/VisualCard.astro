@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import DemoBadge from './DemoBadge.astro';
+import ResponsiveImage from './ResponsiveImage.astro';
 import { withBase } from '../lib/url';
 
 interface Props { entry: CollectionEntry<'visuals'>; showWorkflowLink?: boolean; }
@@ -9,7 +10,7 @@ const { entry, showWorkflowLink = true } = Astro.props;
 
 <figure class="visual-card" style={`--ratio:${entry.data.image.width}/${entry.data.image.height}`} data-reveal>
   <div class="visual-card__image">
-    <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
+    <ResponsiveImage {...entry.data.image} sizes="(max-width: 767px) 92vw, 45vw" />
   </div>
   <figcaption>
     <span class="visual-card__title">{entry.data.title} <DemoBadge demo={entry.data.demo} /></span>

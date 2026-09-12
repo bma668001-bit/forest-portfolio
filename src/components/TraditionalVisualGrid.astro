@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { withBase } from '../lib/url';
+import ResponsiveImage from './ResponsiveImage.astro';
 
 interface Props {
   entries: CollectionEntry<'traditionalVisuals'>[];
@@ -16,7 +17,7 @@ const archiveHref = withBase('visuals/#traditional');
     <figure class="traditional-visual" data-traditional-visual data-reveal style={`--reveal-index:${index}`}>
       {mode === 'preview' ? (
         <a class="traditional-visual__media" href={archiveHref} aria-label={`查看 AI 前传统设计：${entry.data.title}`}>
-          <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
+          <ResponsiveImage {...entry.data.image} sizes="(max-width: 767px) 92vw, 45vw" />
         </a>
       ) : (
         <button
@@ -35,7 +36,7 @@ const archiveHref = withBase('visuals/#traditional');
           data-tools="Photoshop"
           aria-label={`放大传统设计作品：${entry.data.title}`}
         >
-          <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
+          <ResponsiveImage {...entry.data.image} sizes="(max-width: 767px) 92vw, 45vw" />
         </button>
       )}
       <figcaption><span>{entry.data.title}</span><span>{entry.data.skill} / AI 前</span></figcaption>
