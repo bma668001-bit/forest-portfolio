@@ -60,3 +60,16 @@ test('mobile archive keeps the load control easy to tap', async ({ page }) => {
   expect(moreBox!.width).toBeGreaterThanOrEqual(progressBox!.width - 1);
   expect(moreBox!.height).toBeGreaterThanOrEqual(44);
 });
+
+test('mobile uses a compact responsive portrait candidate', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#about');
+
+  const portrait = page.locator('.about-section__portrait img');
+  await portrait.scrollIntoViewIfNeeded();
+  await expect(portrait).toBeVisible();
+  await expect(portrait).toHaveAttribute('srcset', /forest-portrait-640\.webp 640w/);
+
+  const currentSource = await portrait.evaluate((image) => (image as HTMLImageElement).currentSrc);
+  expect(currentSource).toMatch(/forest-portrait-(640|1024)\.webp$/);
+});
