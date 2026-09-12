@@ -1,0 +1,37 @@
+---
+import { withBase } from '../lib/url';
+
+interface CaseImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+}
+
+interface Props {
+  images: CaseImage[];
+}
+
+const { images } = Astro.props;
+---
+
+<section class="workflow-case-gallery" aria-labelledby="workflow-case-title">
+  <p class="eyebrow">CASE STUDY / WORKFLOW</p>
+  <h2 id="workflow-case-title">案例图解</h2>
+  <div class="workflow-case-grid">
+    {images.map((image, index) => (
+      <figure class="workflow-case-card">
+        <span>{String(index + 1).padStart(2, '0')}</span>
+        <img
+          src={withBase(image.src)}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          loading={index === 0 ? 'eager' : 'lazy'}
+        />
+        {image.caption && <figcaption>{image.caption}</figcaption>}
+      </figure>
+    ))}
+  </div>
+</section>

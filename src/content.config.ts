@@ -28,6 +28,7 @@ const workflows = defineCollection({
     status: z.enum(['active', 'evolving', 'archived']),
     featured: z.boolean().default(false),
     cover: image,
+    gallery: z.array(projectImage).default([]),
     tools: z.array(z.string()).default([]),
     versionOf: z.string().optional(),
   }),
@@ -46,6 +47,17 @@ const visuals = defineCollection({
     featured: z.boolean().default(false),
     projectId: contentId.optional(),
     workflowId: contentId.optional(),
+  }),
+});
+
+const traditionalVisuals = defineCollection({
+  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/data/traditional-visuals' }),
+  schema: z.object({
+    ...base,
+    description: z.string().trim().min(1),
+    skill: z.string().trim().min(1),
+    featured: z.boolean().default(false),
+    image,
   }),
 });
 
@@ -93,6 +105,7 @@ const profile = defineCollection({
     bio: z.string().min(1),
     email: z.string(),
     wechatQr: z.string(),
+    portrait: image.optional(),
     location: z.string().default(''),
     availability: z.string().default(''),
     resumeUrl: z.string().default(''),
@@ -105,4 +118,4 @@ const profile = defineCollection({
   }),
 });
 
-export const collections = { workflows, visuals, projects, articles, notes, profile };
+export const collections = { workflows, visuals, traditionalVisuals, projects, articles, notes, profile };

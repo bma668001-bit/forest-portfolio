@@ -17,7 +17,12 @@ const year = new Date().getFullYear();
       <div class="site-footer__meta">
         <p>欢迎交流视觉、内容与工作流的具体问题。</p>
         {profile.email && <a href={withBase(`mailto:${profile.email}`)}>{profile.email}</a>}
-        {profile.wechatQr && <img src={withBase(profile.wechatQr)} alt="微信联系二维码" width="180" height="180" loading="lazy" />}
+        {profile.wechatQr && (
+          <figure class="site-footer__wechat">
+            <img src={withBase(profile.wechatQr)} alt="森林的微信联系二维码" width="200" height="300" loading="lazy" />
+            <figcaption>微信联系 / 扫码添加森林</figcaption>
+          </figure>
+        )}
         {!profile.email && !profile.wechatQr && <p>微信二维码整理后放在这里。</p>}
       </div>
     </div>

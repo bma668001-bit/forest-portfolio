@@ -31,11 +31,28 @@ test('homepage presents the real experience narrative without invented profile d
   await expect(page.locator('[data-profile-availability]')).toHaveCount(0);
   await expect(page.locator('[data-profile-resume]')).toHaveCount(0);
   await expect(page.locator('[data-profile-social-links]')).toHaveCount(0);
-  await expect(page.locator('.contact-anchor')).toHaveCount(0);
-  await expect(page.getByRole('link', { name: '浏览视觉作品', exact: true })).toBeVisible();
 });
 
-test('demo content carries one consistent structure label across portfolio surfaces', async ({ page }) => {
+test('homepage exposes Forest’s WeChat contact without overflowing on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+
+  await expect(page.locator('.contact-anchor')).toHaveAttribute('href', '/#contact');
+  await expect(page.locator('.about-section__next')).toHaveAttribute('href', '#contact');
+  const qr = page.getByRole('img', { name: '森林的微信联系二维码' });
+  await expect(qr).toBeVisible();
+  await expect(qr).toHaveAttribute('src', '/images/contact/forest-wechat-qr.png');
+  await expect(page.getByText('微信联系 / 扫码添加森林', { exact: true })).toBeVisible();
+  const geometry = await qr.evaluate((image) => ({
+    width: image.getBoundingClientRect().width,
+    viewportWidth: document.documentElement.clientWidth,
+    pageWidth: document.documentElement.scrollWidth,
+  }));
+  expect(geometry.width).toBeLessThanOrEqual(200);
+  expect(geometry.pageWidth).toBeLessThanOrEqual(geometry.viewportWidth);
+});
+
+test('published portfolio surfaces no longer show placeholder badges', async ({ page }) => {
   const routes = [
     '/',
     '/visuals/',
@@ -43,7 +60,7 @@ test('demo content carries one consistent structure label across portfolio surfa
 
   for (const route of routes) {
     await page.goto(route);
-    await expect(page.getByText('结构示例', { exact: true }).first()).toBeVisible();
+    await expect(page.getByText('结构示例', { exact: true })).toHaveCount(0);
   }
 });
 

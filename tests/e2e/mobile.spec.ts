@@ -39,11 +39,24 @@ test('mobile navigation locks and restores page scrolling', async ({ page }) => 
 test('lightbox supports horizontal swipe while keeping button controls', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/visuals/');
-  await page.locator('[data-lightbox-trigger]').first().click();
+  await page.locator('[data-gallery] [data-lightbox-trigger]').first().click();
   const stage = page.locator('[data-lightbox-stage]');
   await stage.dispatchEvent('pointerdown', { pointerId: 1, isPrimary: true, clientX: 300, clientY: 400 });
   await stage.dispatchEvent('pointerup', { pointerId: 1, isPrimary: true, clientX: 180, clientY: 410 });
-  await expect(page.locator('[data-lightbox-caption]')).toContainText('自媒体封面实验');
+  await expect(page.locator('[data-lightbox-caption]')).toContainText('美好童行品牌视觉');
   await expect(page.getByRole('button', { name: '上一张作品' })).toBeVisible();
   await expect(page.getByRole('button', { name: '下一张作品' })).toBeVisible();
+});
+
+test('mobile archive keeps the load control easy to tap', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/visuals/');
+  const progress = page.locator('[data-gallery-progress]');
+  const more = page.getByRole('button', { name: '加载更多作品' });
+  const [progressBox, moreBox] = await Promise.all([progress.boundingBox(), more.boundingBox()]);
+
+  expect(progressBox).not.toBeNull();
+  expect(moreBox).not.toBeNull();
+  expect(moreBox!.width).toBeGreaterThanOrEqual(progressBox!.width - 1);
+  expect(moreBox!.height).toBeGreaterThanOrEqual(44);
 });

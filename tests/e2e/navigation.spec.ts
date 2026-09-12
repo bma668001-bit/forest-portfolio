@@ -10,10 +10,10 @@ test('primary navigation reaches every archive', async ({ page }) => {
   await expect(links.filter({ hasText: /^思考$/ })).toHaveAttribute('href', /\/thoughts\/$/);
 });
 
-test('header section links return detail pages home without an empty contact target', async ({ page }) => {
+test('header section links return detail pages to the home profile and contact sections', async ({ page }) => {
   await page.goto('/workflows/wechat-writing/');
   await expect(page.locator('#primary-navigation a', { hasText: /^关于$/ })).toHaveAttribute('href', '/#about');
-  await expect(page.locator('.contact-anchor')).toHaveCount(0);
+  await expect(page.locator('.contact-anchor')).toHaveAttribute('href', '/#contact');
 });
 
 test('mobile menu is inert while closed and moves focus into the opened navigation', async ({ page }) => {
@@ -91,7 +91,7 @@ test('archive and detail routes mark exactly one current portfolio section', asy
     { path: '/workflows/', current: '工作流' },
     { path: '/workflows/wechat-writing/', current: '工作流' },
     { path: '/visuals/', current: '视觉作品' },
-    { path: '/projects/editorial-system/', current: '视觉作品' },
+    { path: '/projects/book-video-workbench/', current: '视觉作品' },
     { path: '/thoughts/', current: '思考' },
     { path: '/thoughts/from-design-to-workflow/', current: '思考' },
   ];
@@ -132,7 +132,7 @@ test('current navigation item uses a restrained underline on desktop and mobile'
 test('workflow archive exposes status and detail routes', async ({ page }) => {
   await page.goto('/workflows/');
   await expect(page.getByRole('heading', { level: 1, name: '工作流档案' })).toBeVisible();
-  await expect(page.locator('.workflow-row')).toHaveCount(5);
+  await expect(page.locator('.workflow-row')).toHaveCount(4);
   await expect(page.getByText('个人工作台设计', { exact: true })).toBeVisible();
   await page.getByRole('link', { name: /公众号快速创作/ }).click();
   await expect(page.getByRole('heading', { level: 1 })).toContainText('公众号快速创作');

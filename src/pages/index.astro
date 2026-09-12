@@ -7,7 +7,8 @@ import { filterPublished, sortByOrder } from '../lib/content';
 
 const [profileEntry] = await getCollection('profile');
 const workflows = sortByOrder(filterPublished(await getCollection('workflows'))).filter((entry) => entry.data.featured);
-const visuals = sortByOrder(filterPublished(await getCollection('visuals'))).filter((entry) => entry.data.featured).slice(0, 6);
+const visuals = sortByOrder(filterPublished(await getCollection('visuals'))).filter((entry) => entry.data.featured).slice(0, 8);
+const traditionalVisuals = sortByOrder(filterPublished(await getCollection('traditionalVisuals'))).filter((entry) => entry.data.featured).slice(0, 4);
 const articles = filterPublished(await getCollection('articles')).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const notes = filterPublished(await getCollection('notes')).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()).slice(0, 3);
 const title = '森林｜视觉设计与 AI 工作流实践';
@@ -24,5 +25,5 @@ const structuredData = {
 
 <BaseLayout title={title} description={description} structuredData={structuredData}>
   <HeroField role={profileEntry.data.role} status={profileEntry.data.status} />
-  <HomeSections profile={profileEntry.data} workflows={workflows} visuals={visuals} articles={articles} notes={notes} />
+  <HomeSections profile={profileEntry.data} workflows={workflows} visuals={visuals} traditionalVisuals={traditionalVisuals} articles={articles} notes={notes} />
 </BaseLayout>

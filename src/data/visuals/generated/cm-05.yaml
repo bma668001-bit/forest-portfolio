@@ -1,0 +1,17 @@
+title: 成都火锅地图
+order: 100
+draft: false
+demo: false
+category: 商业视觉
+era: ai-assisted
+description: AI 辅助完成的商业视觉练习，围绕“成都火锅地图”处理主视觉、标题层级与场景氛围。
+year: 2026
+tools:
+  - AI 生图
+  - 版式设计
+featured: false
+image:
+  src: /images/visuals/commercial/cm-05.jpg
+  alt: 商业视觉作品《成都火锅地图》
+  width: 1922
+  height: 818

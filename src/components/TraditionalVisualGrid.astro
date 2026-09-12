@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { withBase } from '../lib/url';
+
+interface Props {
+  entries: CollectionEntry<'traditionalVisuals'>[];
+  mode: 'preview' | 'archive';
+}
+
+const { entries, mode } = Astro.props;
+const archiveHref = withBase('visuals/#traditional');
+---
+
+<div class:list={['traditional-grid', `traditional-grid--${mode}`]}>
+  {entries.map((entry, index) => (
+    <figure class="traditional-visual" data-traditional-visual data-reveal style={`--reveal-index:${index}`}>
+      {mode === 'preview' ? (
+        <a class="traditional-visual__media" href={archiveHref} aria-label={`查看 AI 前传统设计：${entry.data.title}`}>
+          <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
+        </a>
+      ) : (
+        <button
+          type="button"
+          class="traditional-visual__media"
+          data-lightbox-trigger
+          data-lightbox-group="traditional"
+          data-original-limit="true"
+          data-src={withBase(entry.data.image.src)}
+          data-alt={entry.data.image.alt}
+          data-width={entry.data.image.width}
+          data-height={entry.data.image.height}
+          data-title={entry.data.title}
+          data-description={entry.data.description}
+          data-era="pre-ai"
+          data-tools="Photoshop"
+          aria-label={`放大传统设计作品：${entry.data.title}`}
+        >
+          <img src={withBase(entry.data.image.src)} alt={entry.data.image.alt} width={entry.data.image.width} height={entry.data.image.height} loading="lazy" />
+        </button>
+      )}
+      <figcaption><span>{entry.data.title}</span><span>{entry.data.skill} / AI 前</span></figcaption>
+    </figure>
+  ))}
+</div>

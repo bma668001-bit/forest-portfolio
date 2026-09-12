@@ -1,0 +1,17 @@
+title: 惊蛰
+order: 70
+draft: false
+demo: false
+category: 节日热点图
+era: ai-assisted
+description: AI 辅助节日视觉练习，以“惊蛰”为主题处理中文字体、自然意象与节日氛围。
+year: 2026
+tools:
+  - AI 生图
+  - 版式设计
+featured: true
+image:
+  src: /images/visuals/festival/fd-03.jpg
+  alt: 节日热点图作品《惊蛰》
+  width: 1024
+  height: 1536

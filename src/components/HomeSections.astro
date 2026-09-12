@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import DemoBadge from './DemoBadge.astro';
 import SectionHeading from './SectionHeading.astro';
 import VisualCard from './VisualCard.astro';
+import TraditionalVisualGrid from './TraditionalVisualGrid.astro';
 import WorkflowCard from './WorkflowCard.astro';
 import { withBase } from '../lib/url';
 
@@ -10,10 +11,11 @@ interface Props {
   profile: CollectionEntry<'profile'>['data'];
   workflows: CollectionEntry<'workflows'>[];
   visuals: CollectionEntry<'visuals'>[];
+  traditionalVisuals: CollectionEntry<'traditionalVisuals'>[];
   articles: CollectionEntry<'articles'>[];
   notes: CollectionEntry<'notes'>[];
 }
-const { profile, workflows, visuals, articles, notes } = Astro.props;
+const { profile, workflows, visuals, traditionalVisuals, articles, notes } = Astro.props;
 const date = (value: Date) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(value);
 const location = profile.location.trim();
 const availability = profile.availability.trim();
@@ -26,11 +28,80 @@ const capabilities = [
   { title: '内容工作流', text: '把选题、改写、配图、配音和素材整理拆成可以重复使用的步骤。' },
   { title: '个人工作台', text: '从每天真正会做的任务出发，和 AI 编程工具一起跑通够用的小闭环。' },
 ];
+const fieldworkImages = {
+  training: [
+    ['training-01.webp', 1448, 1086], ['training-02.webp', 1600, 1200], ['training-03.webp', 1600, 1200],
+    ['training-04.webp', 1600, 1200], ['training-05.webp', 1061, 1464], ['training-06.webp', 1448, 1086],
+    ['training-07.webp', 1448, 1086], ['training-08.webp', 1086, 1448], ['training-09.webp', 1080, 620],
+  ],
+  learning: [
+    ['learning-01.webp', 1459, 1280], ['learning-02.webp', 1448, 1086], ['learning-03.webp', 1448, 1086],
+    ['learning-04.webp', 1448, 1086], ['learning-05.webp', 1448, 1086], ['learning-06.webp', 1086, 1448],
+    ['learning-07.webp', 1086, 1448], ['learning-08.webp', 1086, 1448], ['learning-09.webp', 1448, 1086],
+  ],
+} as const;
+const fieldworkSrc = (name: string) => withBase(`images/fieldwork/${name}`);
 ---
+
+{workflows.length > 0 && (
+  <section class="home-section shell" data-reveal>
+    <SectionHeading eyebrow="03 / SYSTEMS" title="工作流精选" href={withBase('workflows/')} linkLabel="全部工作流" />
+    <div class="workflow-list">{workflows.map((entry, index) => <WorkflowCard entry={entry} index={index} />)}</div>
+  </section>
+)}
+
+<section class="fieldwork-section shell" data-reveal aria-labelledby="fieldwork-title">
+  <div class="section-heading">
+    <p class="eyebrow">02 / FIELDWORK</p>
+    <h2 id="fieldwork-title">AI 培训与现场实践</h2>
+  </div>
+  <div class="fieldwork-grid">
+    <article class="fieldwork-card">
+      <p class="eyebrow">培训交付 / ROLE</p>
+      <h3>从获客到现场助教</h3>
+      <p>通过小红书、公众号和朋友圈触达潜在学员，沟通他们在工作和生活中的具体问题，并协助完成培训交付。</p>
+      <p class="fieldwork-card__note">现场图片中的人脸与身份信息已做像素化或风格化处理，在保留真实培训场景的同时保护参与者隐私。</p>
+      <ul>
+        <li>内容触达与用户沟通</li>
+        <li>需求理解与报名衔接</li>
+        <li>配合主讲老师进行现场答疑</li>
+      </ul>
+      <div class="fieldwork-gallery">
+        {fieldworkImages.training.slice(0, 3).map(([src, width, height], index) => <img src={fieldworkSrc(src)} alt={`AI 培训现场记录 ${index + 1}`} width={width} height={height} loading="lazy" />)}
+      </div>
+      <details class="fieldwork-more">
+        <summary>查看其余现场记录</summary>
+        <div class="fieldwork-gallery">
+          {fieldworkImages.training.slice(3).map(([src, width, height], index) => <img src={fieldworkSrc(src)} alt={`AI 培训现场记录 ${index + 4}`} width={width} height={height} loading="lazy" />)}
+        </div>
+      </details>
+    </article>
+    <article class="fieldwork-card">
+      <p class="eyebrow">持续学习 / FIELD NOTES</p>
+      <h3>在真实场景里认识 AI</h3>
+      <p>持续参加线下 AI 聚会和培训，与不同赛道的实践者交流经验，把现场听到的问题带回自己的工作流里验证。</p>
+      <p class="fieldwork-card__note">部分交流记录经过风格化处理，仅用于展示学习场景，不用于识别现场参与者。</p>
+      <ul>
+        <li>关注真实使用场景</li>
+        <li>记录工具与方法的差异</li>
+        <li>把交流转化为可复用的判断</li>
+      </ul>
+      <div class="fieldwork-gallery">
+        {fieldworkImages.learning.slice(0, 3).map(([src, width, height], index) => <img src={fieldworkSrc(src)} alt={`AI 线下交流学习记录 ${index + 1}`} width={width} height={height} loading="lazy" />)}
+      </div>
+      <details class="fieldwork-more">
+        <summary>查看其余交流记录</summary>
+        <div class="fieldwork-gallery">
+          {fieldworkImages.learning.slice(3).map(([src, width, height], index) => <img src={fieldworkSrc(src)} alt={`AI 线下交流学习记录 ${index + 4}`} width={width} height={height} loading="lazy" />)}
+        </div>
+      </details>
+    </article>
+  </div>
+</section>
 
 <section class="capability-section shell" aria-labelledby="capability-title" data-reveal>
   <div class="capability-section__heading">
-    <p class="eyebrow">01 / CAPABILITIES</p>
+    <p class="eyebrow">04 / CAPABILITIES</p>
     <h2 id="capability-title">我擅长什么</h2>
   </div>
   <ol class="capability-list">
@@ -44,34 +115,29 @@ const capabilities = [
   </ol>
 </section>
 
-{workflows.length > 0 && (
-  <section class="home-section shell" data-reveal>
-    <SectionHeading eyebrow="02 / SYSTEMS" title="工作流精选" href={withBase('workflows/')} linkLabel="全部工作流" />
-    <div class="workflow-list">{workflows.map((entry, index) => <WorkflowCard entry={entry} index={index} />)}</div>
-  </section>
-)}
-
 {visuals.length > 0 && (
   <section class="home-section shell" data-reveal>
-    <SectionHeading eyebrow="03 / VISUALS" title="视觉实践" href={withBase('visuals/')} linkLabel="全部作品" />
+    <SectionHeading eyebrow="05 / VISUALS" title="视觉实践" href={withBase('visuals/')} linkLabel="全部作品" />
     <div class="visual-feature-grid">{visuals.map((entry) => <VisualCard entry={entry} />)}</div>
   </section>
 )}
 
 <section class="legacy-band" aria-label="传统设计基础" data-reveal>
   <div class="shell legacy-band__inner">
-    <p class="eyebrow">04 / FOUNDATION</p>
+    <p class="eyebrow">06 / FOUNDATION · AI 前</p>
     <p class="legacy-band__word">PS<br />BEFORE AI</p>
     <div class="legacy-band__copy">
       <p>海报、电商主图、自媒体封面、活动排版与节日热点图。</p>
       <p>传统设计作品不会抢走主叙事，但会留下判断构图、字体和商业场景的基础。</p>
+      <a href={withBase('visuals/#traditional')}>查看传统作品 ↗</a>
     </div>
+    <TraditionalVisualGrid entries={traditionalVisuals} mode="preview" />
   </div>
 </section>
 
 {(articles.length > 0 || notes.length > 0) && (
   <section class="home-section shell" data-reveal>
-    <SectionHeading eyebrow="05 / NOTES" title="最近在想" href={withBase('thoughts/')} linkLabel="全部思考" />
+    <SectionHeading eyebrow="07 / NOTES" title="最近在想" href={withBase('thoughts/')} linkLabel="全部思考" />
     <div class="thought-preview">
       {articles[0] && (
         <a class="article-lead" href={withBase(`thoughts/${articles[0].id}/`)}>
@@ -85,7 +151,16 @@ const capabilities = [
 
 <section class="about-section" id="about" aria-labelledby="about-title" data-reveal>
   <div class="shell about-section__grid">
-    <div><p class="eyebrow">06 / PROFILE</p><h2 id="about-title">关于森林</h2></div>
+    <div class="about-section__identity">
+      <p class="eyebrow">06 / PROFILE</p>
+      <h2 id="about-title">关于森林</h2>
+      {profile.portrait && (
+        <figure class="about-section__portrait">
+          <img src={withBase(profile.portrait.src)} alt={profile.portrait.alt} width={profile.portrait.width} height={profile.portrait.height} loading="lazy" />
+          <figcaption>森林 / 视觉设计与 AI 工作流实践</figcaption>
+        </figure>
+      )}
+    </div>
     <div class="about-section__copy">
       <p class="about-section__lead">{profile.bio}</p><p>{profile.status}</p>
       <ol class="experience-list" aria-label="经历">

@@ -8,10 +8,10 @@ demo: false
 status: evolving
 featured: true
 cover:
-  src: /images/demo/workflow-orbit.svg
-  alt: 个人内容工作台任务链的抽象示意图
-  width: 1200
-  height: 1500
+  src: /images/workbenches/personal-workbench.png
+  alt: 个人工作台首页，集中展示账号数据、今日任务、最近灵感与工作入口
+  width: 3468
+  height: 1955
 tools:
   - Codex
   - API 协作
@@ -38,4 +38,4 @@ tools:
 
 我还在观察字幕对齐和自动混剪是否值得继续做，也在处理规则传递、任务隔离和异常提示。
 
-当前封面是工作台结构示意图，真实页面截图整理后替换。
+封面展示个人工作台首页：账号数据、今日任务、最近灵感和常用工作入口。

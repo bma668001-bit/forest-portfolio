@@ -1,0 +1,17 @@
+title: 东方甄选自营苹果干
+order: 50
+draft: false
+demo: false
+category: 电商主图
+era: ai-assisted
+description: AI 辅助电商视觉练习，以“东方甄选自营苹果干”呈现产品卖点、信息层级与使用场景。
+year: 2026
+tools:
+  - AI 生图
+  - 版式设计
+featured: true
+image:
+  src: /images/visuals/ecommerce/ec-01.jpg
+  alt: 电商主图作品《东方甄选自营苹果干》
+  width: 1448
+  height: 1086

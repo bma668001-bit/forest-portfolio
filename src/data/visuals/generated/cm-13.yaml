@@ -1,0 +1,17 @@
+title: 成都美食节
+order: 30
+draft: false
+demo: false
+category: 商业视觉
+era: ai-assisted
+description: AI 辅助完成的商业视觉练习，围绕“成都美食节”处理主视觉、标题层级与场景氛围。
+year: 2026
+tools:
+  - AI 生图
+  - 版式设计
+featured: true
+image:
+  src: /images/visuals/commercial/cm-13.jpg
+  alt: 商业视觉作品《成都美食节》
+  width: 1672
+  height: 941

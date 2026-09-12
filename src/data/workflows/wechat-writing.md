@@ -8,10 +8,31 @@ demo: false
 status: active
 featured: true
 cover:
-  src: /images/demo/workflow-field.svg
-  alt: 公众号内容生产流程的抽象示意图
-  width: 1600
-  height: 1000
+  src: /images/workbenches/wechat-workbench-concept.png
+  alt: 公众号内容二创工作台概念图，展示素材拆解、标题候选与质量检查
+  width: 3280
+  height: 2000
+gallery:
+  - src: /images/workbenches/wechat-writing/content-system.png
+    alt: 公众号内容生产工作流从想法到成品的系统总览
+    width: 1448
+    height: 1086
+    caption: 内容生产系统总览：从想法到成品。
+  - src: /images/workbenches/wechat-writing/six-step-flow.png
+    alt: 公众号内容生产从输入到交付的六步工作顺序
+    width: 1448
+    height: 1086
+    caption: 六步工作顺序：输入、判断、创作、视觉、检查、交付。
+  - src: /images/workbenches/wechat-writing/privacy-boundary.png
+    alt: 公众号工作流展示能力与隐藏资产的信息安全原则
+    width: 1448
+    height: 1086
+    caption: 信息安全原则：展示方法、节点和交付物，隐藏账号、路径、来源与数据。
+  - src: /images/workbenches/wechat-writing/reusable-deliverables.png
+    alt: 公众号工作流可复用的内容成品视觉版本与流程模板
+    width: 1448
+    height: 1086
+    caption: 可复用交付物：内容成品、视觉版本和流程模板。
 tools:
   - 内容拆解
   - 动作核对
@@ -38,4 +59,4 @@ tools:
 
 长文章写到后半段仍可能跑偏，动作识别和系列配图的一致性也需要人工检查。
 
-当前封面是流程结构示意图，真实文章与教学卡片整理后替换。
+封面为公众号内容二创工作台概念图，其中数据为示例，用于展示流程与界面设计，不代表实际运营结果。

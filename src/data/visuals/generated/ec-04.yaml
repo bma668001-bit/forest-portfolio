@@ -1,0 +1,17 @@
+title: 一半以上都是肉
+order: 180
+draft: false
+demo: false
+category: 电商主图
+era: ai-assisted
+description: AI 辅助电商视觉练习，以“一半以上都是肉”呈现产品卖点、信息层级与使用场景。
+year: 2026
+tools:
+  - AI 生图
+  - 版式设计
+featured: false
+image:
+  src: /images/visuals/ecommerce/ec-04.jpg
+  alt: 电商主图作品《一半以上都是肉》
+  width: 941
+  height: 1672

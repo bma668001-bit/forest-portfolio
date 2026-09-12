@@ -1,0 +1,17 @@
+title: 产地鲜果直送
+order: 150
+draft: false
+demo: false
+category: 商业视觉
+era: ai-assisted
+description: AI 辅助完成的商业视觉练习，围绕“产地鲜果直送”处理主视觉、标题层级与场景氛围。
+year: 2026
+tools:
+  - AI 生图
+  - 版式设计
+featured: false
+image:
+  src: /images/visuals/commercial/cm-18.jpg
+  alt: 商业视觉作品《产地鲜果直送》
+  width: 2172
+  height: 724

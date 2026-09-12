@@ -1,32 +1,1028 @@
 [
   {
-    "id": "editorial-poster",
-    "file": "demo/workflow-field.svg",
-    "title": "编辑式海报实验",
-    "alt": "暖米色背景上的抽象节点与编辑式大字",
-    "category": "海报",
+    "id": "cm-02",
+    "file": "visuals/commercial/cm-02.jpg",
+    "title": "成都慢生活",
+    "alt": "商业视觉作品《成都慢生活》",
+    "category": "商业视觉",
     "era": "ai-assisted",
-    "description": "用于验证横版作品展示与内容关联的演示资产：暖米色画面以抽象节点、曲线和编辑式大字组织，不代表客户项目。",
-    "tools": ["SVG", "AI 辅助编排"],
+    "description": "AI 辅助完成的商业视觉练习，围绕“成都慢生活”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
     "year": 2026,
     "order": 10,
-    "demo": true,
-    "featured": true,
-    "workflowId": "wechat-writing"
+    "draft": false,
+    "demo": false,
+    "featured": true
   },
   {
-    "id": "social-cover",
-    "file": "demo/workflow-orbit.svg",
-    "title": "自媒体封面实验",
-    "alt": "深咖啡背景上的暖色轨道构图",
-    "category": "自媒体封面",
-    "era": "hybrid",
-    "description": "用于验证竖版作品展示与灯箱切换的演示资产：深咖啡画面以暖色轨道、圆点和上下文字组织，不代表真实发布成果。",
-    "tools": ["SVG", "AI 辅助编排", "人工版式调整"],
+    "id": "cm-09",
+    "file": "visuals/commercial/cm-09.jpg",
+    "title": "美好童行品牌视觉",
+    "alt": "商业视觉作品《美好童行品牌视觉》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“美好童行品牌视觉”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
     "year": 2026,
     "order": 20,
-    "demo": true,
-    "featured": true,
-    "workflowId": "wechat-writing"
+    "draft": false,
+    "demo": false,
+    "featured": true
+  },
+  {
+    "id": "cm-13",
+    "file": "visuals/commercial/cm-13.jpg",
+    "title": "成都美食节",
+    "alt": "商业视觉作品《成都美食节》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“成都美食节”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 30,
+    "draft": false,
+    "demo": false,
+    "featured": true
+  },
+  {
+    "id": "cm-14",
+    "file": "visuals/commercial/cm-14.jpg",
+    "title": "供应商大会",
+    "alt": "商业视觉作品《供应商大会》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“供应商大会”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 40,
+    "draft": false,
+    "demo": false,
+    "featured": true
+  },
+  {
+    "id": "ec-01",
+    "file": "visuals/ecommerce/ec-01.jpg",
+    "title": "东方甄选自营苹果干",
+    "alt": "电商主图作品《东方甄选自营苹果干》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“东方甄选自营苹果干”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 50,
+    "draft": false,
+    "demo": false,
+    "featured": true
+  },
+  {
+    "id": "ec-19",
+    "file": "visuals/ecommerce/ec-19.jpg",
+    "title": "半颗苹果约一片苹果干",
+    "alt": "电商主图作品《半颗苹果约一片苹果干》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“半颗苹果约一片苹果干”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 60,
+    "draft": false,
+    "demo": false,
+    "featured": true
+  },
+  {
+    "id": "fd-03",
+    "file": "visuals/festival/fd-03.jpg",
+    "title": "惊蛰",
+    "alt": "节日热点图作品《惊蛰》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“惊蛰”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 70,
+    "draft": false,
+    "demo": false,
+    "featured": true
+  },
+  {
+    "id": "sc-11",
+    "file": "visuals/social/sc-11.jpg",
+    "title": "32 岁转做 AI 设计",
+    "alt": "自媒体封面作品《32 岁转做 AI 设计》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“32 岁转做 AI 设计”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 80,
+    "draft": false,
+    "demo": false,
+    "featured": true
+  },
+  {
+    "id": "cm-04",
+    "file": "visuals/commercial/cm-04.jpg",
+    "title": "成都夜游地图",
+    "alt": "商业视觉作品《成都夜游地图》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“成都夜游地图”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 90,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "cm-05",
+    "file": "visuals/commercial/cm-05.jpg",
+    "title": "成都火锅地图",
+    "alt": "商业视觉作品《成都火锅地图》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“成都火锅地图”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 100,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "cm-10",
+    "file": "visuals/commercial/cm-10.jpg",
+    "title": "年中狂欢·成都来造",
+    "alt": "商业视觉作品《年中狂欢·成都来造》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“年中狂欢·成都来造”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 110,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "cm-11",
+    "file": "visuals/commercial/cm-11.jpg",
+    "title": "美好生活·开心一下",
+    "alt": "商业视觉作品《美好生活·开心一下》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“美好生活·开心一下”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 120,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "cm-12",
+    "file": "visuals/commercial/cm-12.jpg",
+    "title": "你好，新学期",
+    "alt": "商业视觉作品《你好，新学期》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“你好，新学期”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 130,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "cm-16",
+    "file": "visuals/commercial/cm-16.jpg",
+    "title": "疯狂夜市",
+    "alt": "商业视觉作品《疯狂夜市》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“疯狂夜市”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 140,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "cm-18",
+    "file": "visuals/commercial/cm-18.jpg",
+    "title": "产地鲜果直送",
+    "alt": "商业视觉作品《产地鲜果直送》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“产地鲜果直送”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 150,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "cm-20",
+    "file": "visuals/commercial/cm-20.jpg",
+    "title": "清凉一夏低价 GO",
+    "alt": "商业视觉作品《清凉一夏低价 GO》",
+    "category": "商业视觉",
+    "era": "ai-assisted",
+    "description": "AI 辅助完成的商业视觉练习，围绕“清凉一夏低价 GO”处理主视觉、标题层级与场景氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 160,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-02",
+    "file": "visuals/ecommerce/ec-02.jpg",
+    "title": "大颗肉肠首图",
+    "alt": "电商主图作品《大颗肉肠首图》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“大颗肉肠首图”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 170,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-04",
+    "file": "visuals/ecommerce/ec-04.jpg",
+    "title": "一半以上都是肉",
+    "alt": "电商主图作品《一半以上都是肉》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“一半以上都是肉”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 180,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-07",
+    "file": "visuals/ecommerce/ec-07.jpg",
+    "title": "配方简单",
+    "alt": "电商主图作品《配方简单》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“配方简单”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 190,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-09",
+    "file": "visuals/ecommerce/ec-09.jpg",
+    "title": "肉肠 Q&A",
+    "alt": "电商主图作品《肉肠 Q&A》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“肉肠 Q&A”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 200,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-10",
+    "file": "visuals/ecommerce/ec-10.jpg",
+    "title": "每日坚果首图",
+    "alt": "电商主图作品《每日坚果首图》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“每日坚果首图”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 210,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-11",
+    "file": "visuals/ecommerce/ec-11.jpg",
+    "title": "大罐囤货·全家共享",
+    "alt": "电商主图作品《大罐囤货·全家共享》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“大罐囤货·全家共享”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 220,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-12",
+    "file": "visuals/ecommerce/ec-12.jpg",
+    "title": "科学搭配五种坚果",
+    "alt": "电商主图作品《科学搭配五种坚果》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“科学搭配五种坚果”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 230,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-14",
+    "file": "visuals/ecommerce/ec-14.jpg",
+    "title": "产品信息",
+    "alt": "电商主图作品《产品信息》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“产品信息”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 240,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-17",
+    "file": "visuals/ecommerce/ec-17.jpg",
+    "title": "酸甜软糯·果香满满",
+    "alt": "电商主图作品《酸甜软糯·果香满满》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“酸甜软糯·果香满满”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 250,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-21",
+    "file": "visuals/ecommerce/ec-21.jpg",
+    "title": "三蒸三晒·原汁原味",
+    "alt": "电商主图作品《三蒸三晒·原汁原味》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“三蒸三晒·原汁原味”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 260,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-23",
+    "file": "visuals/ecommerce/ec-23.jpg",
+    "title": "中老年舒适健步鞋",
+    "alt": "电商主图作品《中老年舒适健步鞋》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“中老年舒适健步鞋”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 270,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-27",
+    "file": "visuals/ecommerce/ec-27.jpg",
+    "title": "软弹缓震·稳步防滑",
+    "alt": "电商主图作品《软弹缓震·稳步防滑》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“软弹缓震·稳步防滑”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 280,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-29",
+    "file": "visuals/ecommerce/ec-29.jpg",
+    "title": "轻盈防晒服",
+    "alt": "电商主图作品《轻盈防晒服》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“轻盈防晒服”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 290,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "ec-33",
+    "file": "visuals/ecommerce/ec-33.jpg",
+    "title": "一件搞定·多场景出行",
+    "alt": "电商主图作品《一件搞定·多场景出行》",
+    "category": "电商主图",
+    "era": "ai-assisted",
+    "description": "AI 辅助电商视觉练习，以“一件搞定·多场景出行”呈现产品卖点、信息层级与使用场景。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 300,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-01",
+    "file": "visuals/festival/fd-01.jpg",
+    "title": "立春",
+    "alt": "节日热点图作品《立春》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“立春”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 310,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-05",
+    "file": "visuals/festival/fd-05.jpg",
+    "title": "清明",
+    "alt": "节日热点图作品《清明》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“清明”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 320,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-07",
+    "file": "visuals/festival/fd-07.jpg",
+    "title": "立夏",
+    "alt": "节日热点图作品《立夏》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“立夏”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 330,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-09",
+    "file": "visuals/festival/fd-09.jpg",
+    "title": "芒种",
+    "alt": "节日热点图作品《芒种》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“芒种”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 340,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-11",
+    "file": "visuals/festival/fd-11.jpg",
+    "title": "夏至",
+    "alt": "节日热点图作品《夏至》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“夏至”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 350,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-13",
+    "file": "visuals/festival/fd-13.jpg",
+    "title": "立秋",
+    "alt": "节日热点图作品《立秋》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“立秋”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 360,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-15",
+    "file": "visuals/festival/fd-15.jpg",
+    "title": "白露",
+    "alt": "节日热点图作品《白露》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“白露”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 370,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-17",
+    "file": "visuals/festival/fd-17.jpg",
+    "title": "寒露",
+    "alt": "节日热点图作品《寒露》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“寒露”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 380,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-21",
+    "file": "visuals/festival/fd-21.jpg",
+    "title": "大雪",
+    "alt": "节日热点图作品《大雪》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“大雪”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 390,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-26",
+    "file": "visuals/festival/fd-26.jpg",
+    "title": "端午安康",
+    "alt": "节日热点图作品《端午安康》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“端午安康”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 400,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-27",
+    "file": "visuals/festival/fd-27.jpg",
+    "title": "中秋",
+    "alt": "节日热点图作品《中秋》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“中秋”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 410,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-28",
+    "file": "visuals/festival/fd-28.jpg",
+    "title": "童心未泯·未来可期",
+    "alt": "节日热点图作品《童心未泯·未来可期》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“童心未泯·未来可期”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 420,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-29",
+    "file": "visuals/festival/fd-29.jpg",
+    "title": "喜迎国庆",
+    "alt": "节日热点图作品《喜迎国庆》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“喜迎国庆”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 430,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-31",
+    "file": "visuals/festival/fd-31.jpg",
+    "title": "元宵",
+    "alt": "节日热点图作品《元宵》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“元宵”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 440,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-33",
+    "file": "visuals/festival/fd-33.jpg",
+    "title": "劳动节",
+    "alt": "节日热点图作品《劳动节》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“劳动节”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 450,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-36",
+    "file": "visuals/festival/fd-36.jpg",
+    "title": "清明踏青",
+    "alt": "节日热点图作品《清明踏青》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“清明踏青”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 460,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "fd-37",
+    "file": "visuals/festival/fd-37.jpg",
+    "title": "重阳",
+    "alt": "节日热点图作品《重阳》",
+    "category": "节日热点图",
+    "era": "ai-assisted",
+    "description": "AI 辅助节日视觉练习，以“重阳”为主题处理中文字体、自然意象与节日氛围。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 470,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-03",
+    "file": "visuals/social/sc-03.jpg",
+    "title": "抗老紧致天花板",
+    "alt": "自媒体封面作品《抗老紧致天花板》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“抗老紧致天花板”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 500,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-04",
+    "file": "visuals/social/sc-04.jpg",
+    "title": "这套抗老真的有点猛",
+    "alt": "自媒体封面作品《这套抗老真的有点猛》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“这套抗老真的有点猛”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 510,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-07",
+    "file": "visuals/social/sc-07.jpg",
+    "title": "一年制硕士申请",
+    "alt": "自媒体封面作品《一年制硕士申请》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“一年制硕士申请”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 520,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-09",
+    "file": "visuals/social/sc-09.jpg",
+    "title": "长辈友好·轻松游",
+    "alt": "自媒体封面作品《长辈友好·轻松游》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“长辈友好·轻松游”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 530,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-10",
+    "file": "visuals/social/sc-10.jpg",
+    "title": "逃进山里",
+    "alt": "自媒体封面作品《逃进山里》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“逃进山里”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 540,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-13",
+    "file": "visuals/social/sc-13.jpg",
+    "title": "公众号没人看",
+    "alt": "自媒体封面作品《公众号没人看》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“公众号没人看”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 550,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-15",
+    "file": "visuals/social/sc-15.jpg",
+    "title": "32 岁转行怎么投简历",
+    "alt": "自媒体封面作品《32 岁转行怎么投简历》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“32 岁转行怎么投简历”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 560,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-18",
+    "file": "visuals/social/sc-18.jpg",
+    "title": "副业知识库怎么搭",
+    "alt": "自媒体封面作品《副业知识库怎么搭》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“副业知识库怎么搭”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 570,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-19",
+    "file": "visuals/social/sc-19.jpg",
+    "title": "作品集这样做",
+    "alt": "自媒体封面作品《作品集这样做》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“作品集这样做”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 580,
+    "draft": false,
+    "demo": false,
+    "featured": false
+  },
+  {
+    "id": "sc-20",
+    "file": "visuals/social/sc-20.jpg",
+    "title": "爆款封面怎么做",
+    "alt": "自媒体封面作品《爆款封面怎么做》",
+    "category": "自媒体封面",
+    "era": "ai-assisted",
+    "description": "AI 辅助自媒体封面练习，以“爆款封面怎么做”测试标题层级、阅读动线与移动端识别度。",
+    "tools": [
+      "AI 生图",
+      "版式设计"
+    ],
+    "year": 2026,
+    "order": 590,
+    "draft": false,
+    "demo": false,
+    "featured": false
   }
 ]

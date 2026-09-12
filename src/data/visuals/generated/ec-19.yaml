@@ -1,0 +1,17 @@
+title: 半颗苹果约一片苹果干
+order: 60
+draft: false
+demo: false
+category: 电商主图
+era: ai-assisted
+description: AI 辅助电商视觉练习，以“半颗苹果约一片苹果干”呈现产品卖点、信息层级与使用场景。
+year: 2026
+tools:
+  - AI 生图
+  - 版式设计
+featured: true
+image:
+  src: /images/visuals/ecommerce/ec-19.jpg
+  alt: 电商主图作品《半颗苹果约一片苹果干》
+  width: 941
+  height: 1672

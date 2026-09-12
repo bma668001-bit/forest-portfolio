@@ -3,7 +3,12 @@ role: 视觉设计师 × AI 工作流实践者
 status: 用设计判断连接视觉、内容与可运行的工作流。
 bio: 我是森林，有 5 年视觉设计经验。过去的工作主要在 Photoshop 里完成：海报、电商主图、自媒体封面和活动视觉。现在，我把同样的设计判断带进 AI 生图和内容工作流，仍然关心一件事：最后的东西能不能真正拿来用。
 email: ""
-wechatQr: ""
+wechatQr: /images/contact/forest-wechat-qr.png
+portrait:
+  src: /images/contact/forest-portrait.png
+  alt: 森林身穿黑色衬衫坐在窗边的个人形象照
+  width: 1086
+  height: 1448
 location: ""
 availability: ""
 resumeUrl: ""

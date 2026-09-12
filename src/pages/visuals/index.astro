@@ -2,30 +2,36 @@
 import { getCollection } from 'astro:content';
 import DemoBadge from '../../components/DemoBadge.astro';
 import Lightbox from '../../components/Lightbox.astro';
+import TraditionalVisualGrid from '../../components/TraditionalVisualGrid.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { filterPublished, sortByOrder } from '../../lib/content';
 import { withBase } from '../../lib/url';
 
 const visuals = sortByOrder(filterPublished(await getCollection('visuals')));
+const traditionalVisuals = sortByOrder(filterPublished(await getCollection('traditionalVisuals')));
 const projects = filterPublished(await getCollection('projects'));
 const workflows = filterPublished(await getCollection('workflows'));
 const projectById = new Map(projects.map((entry) => [entry.id, entry]));
 const workflowById = new Map(workflows.map((entry) => [entry.id, entry]));
 const categories = ['全部', ...new Set(visuals.map((entry) => entry.data.category))];
-const eraLabels = {
-  'pre-ai': 'AI 前',
-  'ai-assisted': 'AI 辅助',
-  hybrid: '混合制作',
-} as const;
+const initialVisibleCount = Math.min(8, visuals.length);
 ---
 
 <BaseLayout title="视觉作品 — AI WORKFLOW / VISUAL PRACTICE" description="海报、电商、自媒体、活动与 AI 场景视觉作品档案。">
   <header class="page-intro shell" data-reveal>
     <p class="eyebrow">VISUAL ARCHIVE / 持续更新</p>
     <h1>视觉作品</h1>
-    <p>不同年代、不同工具与不同使用场景放在同一份视觉档案里。正式素材导入后，类别会由内容自动生成。</p>
+    <p>从商业视觉、电商主图到节日热点与自媒体封面，按真实使用场景整理成一份持续更新的视觉档案。</p>
   </header>
-  <section class="gallery-section shell" data-reveal>
+  <section id="traditional" class="traditional-archive shell" aria-labelledby="traditional-title">
+    <div class="traditional-archive__heading" data-reveal>
+      <p class="eyebrow">BEFORE AI / PHOTOSHOP</p>
+      <h2 id="traditional-title">传统设计基础</h2>
+      <p>在使用 AI 之前，我主要用 Photoshop 完成商业活动、节日主题、产品海报与信息排版。这 8 张保留的是设计判断本身。</p>
+    </div>
+    <TraditionalVisualGrid entries={traditionalVisuals} mode="archive" />
+  </section>
+  <section class="gallery-section shell">
     <div class="gallery-filters" aria-label="作品筛选">
       <div class="gallery-filter-group" role="group" aria-labelledby="category-filter-label" data-filter-group="category">
         <span class="gallery-filter-label" id="category-filter-label">作品类别</span>
@@ -33,21 +39,15 @@ const eraLabels = {
           {categories.map((category, index) => <button type="button" data-filter-group="category" data-filter-value={category} aria-pressed={index === 0 ? 'true' : 'false'}>{category}</button>)}
         </div>
       </div>
-      <div class="gallery-filter-group" role="group" aria-labelledby="era-filter-label" data-filter-group="era">
-        <span class="gallery-filter-label" id="era-filter-label">创作阶段</span>
-        <div class="gallery-filter-options">
-          <button type="button" data-filter-group="era" data-filter-value="全部" aria-pressed="true">全部</button>
-          {Object.entries(eraLabels).map(([era, label]) => <button type="button" data-filter-group="era" data-filter-value={era} aria-pressed="false">{label}</button>)}
-        </div>
-      </div>
     </div>
     <div class="gallery-grid" data-gallery>
       {visuals.map((entry, index) => (
-        <figure class="gallery-item" data-visual data-reveal data-category={entry.data.category} data-era={entry.data.era} style={`--ratio:${entry.data.image.width}/${entry.data.image.height};--reveal-index:${index}`}>
+        <figure class="gallery-item" data-visual data-reveal data-category={entry.data.category} data-era={entry.data.era} hidden={index >= initialVisibleCount} style={`--ratio:${entry.data.image.width}/${entry.data.image.height};--reveal-index:${index}`}>
           <button
             type="button"
             class="gallery-item__trigger"
             data-lightbox-trigger
+            data-lightbox-group="ai-archive"
             data-src={withBase(entry.data.image.src)}
             data-alt={entry.data.image.alt}
             data-width={entry.data.image.width}
@@ -72,6 +72,10 @@ const eraLabels = {
       ))}
     </div>
     <p class="gallery-empty" data-gallery-empty hidden>当前筛选条件下暂时没有作品。</p>
+    <div class="gallery-progress" data-gallery-progress aria-live="polite">
+      <span data-gallery-count>已展示 {initialVisibleCount} / {visuals.length}</span>
+      <button type="button" data-gallery-more aria-label="加载更多作品" hidden={initialVisibleCount >= visuals.length}>加载更多</button>
+    </div>
   </section>
   <Lightbox />
   <script>

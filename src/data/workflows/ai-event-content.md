@@ -3,7 +3,7 @@ title: AI 活动信息整理与社交内容生产
 summary: 把分散的活动截图和课程信息整理成适合社交平台发布的图文。
 year: 2026
 order: 50
-draft: false
+draft: true
 demo: false
 status: active
 featured: true

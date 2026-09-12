@@ -10,21 +10,21 @@ draft: false
 demo: false
 featured: true
 cover:
-  src: /images/demo/workflow-field.svg
-  alt: 图书类短视频工作台的流程结构示意图
-  width: 1600
-  height: 1000
+  src: /images/workbenches/book-video-editor.png
+  alt: 图书类短视频半自动工作台的文案二创界面
+  width: 3476
+  height: 1629
 gallery:
-  - src: /images/demo/workflow-field.svg
-    alt: 逐字稿、图片和配音任务之间的流程结构示意
-    width: 1600
-    height: 1000
-    caption: 流程结构示意图，真实工作台截图整理后替换。
-  - src: /images/demo/workflow-orbit.svg
-    alt: 内容任务状态与不同生产环节的抽象示意
-    width: 1200
-    height: 1500
-    caption: 流程结构示意图，真实工作台截图整理后替换。
+  - src: /images/workbenches/book-video-editor.png
+    alt: 文案二创工作界面，原文与改写并排展示，下方提供校验反馈
+    width: 3476
+    height: 1629
+    caption: 文案二创界面：原文与改写并排查看，确认后继续处理分镜和图片。
+  - src: /images/workbenches/book-video-dashboard.png
+    alt: 书单号半自动剪辑进度看板，展示素材、转录、剪映草稿、字幕与导出阶段
+    width: 2046
+    height: 1923
+    caption: 半自动剪辑进度看板：集中查看各选题的素材、转录和剪映草稿状态，字幕与导出保留人工处理。
 tools:
   - Codex
   - DeepSeek API
